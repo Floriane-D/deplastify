@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :vouchers, only: [:new, :create]
+    resources :benefits, only: [:new, :create, :edit, :update, :destroy]
   end
 
   # get '/search/', :to => 'stores#search', :as => :search
