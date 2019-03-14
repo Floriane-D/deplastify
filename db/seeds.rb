@@ -13,3 +13,102 @@
 #   )
 #   user.save!
 # end
+
+require 'faker'
+
+10.times do
+  user = User.new(
+    email:    Faker::Internet.unique.email,
+    password: "12345678"
+  )
+  user.save!
+end
+
+
+5.times do
+  store = Store.new(
+    name:    Faker::Company.unique.name,
+    address: ["135 avenida Sao Sebastiao, Rio de Janeiro", "144 rua bom pastor , Rio de Janeiro", "74 Moura Brasil , Rio de Janeiro", "85 rua Rodolfo Dantas, Rio de Janeiro", "89 rua do Catete, Rio de Janeiro"].sample,
+    description: Faker::Commerce.department(3),
+    phone: ["21-99-234-234","21-99-45-456","21-99-789-789","21-99-678-678","21-99-654-654"].sample,
+    user_id:["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  store.save!
+end
+
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 1,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["17h00", "18h00","19h00","20h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 2,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["17h00", "18h00","19h00","20h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 3,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["17h00", "18h00","19h00","20h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 4,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["17h00", "18h00","19h00","20h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 5,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["17h00", "18h00","19h00","20h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 6,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["17h00", "18h00","19h00","20h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+5.times do
+  working_hour = WorkingHour.new(
+    week_day: 7,
+    start_time: ["8h30", "9h00", "10h00","11h00"].sample,
+    end_time: ["12h00", "13h00"].sample,
+    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+  )
+  working_hour.save!
+end
+
+
+
+
+
+
