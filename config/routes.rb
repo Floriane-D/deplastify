@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'profile', to: 'pages#profile'
 
-  resources :stores
+  resources :stores do
+    resources :vouchers, only: [:new, :create]
+  end
 
   # get '/search/', :to => 'stores#search', :as => :search
 end
