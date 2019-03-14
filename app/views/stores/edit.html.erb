@@ -1,0 +1,49 @@
+<div class="hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+
+        <div class="col-sm-4">
+
+          <h1 style="text-align: center">Edit <%= @store.name %>:</h1>
+
+          <%= simple_form_for(:store, as: @store.id, url: store_path(@store.id), html: { method: :patch }) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+
+              <%= f.input :name %>
+              <%= f.input :address %>
+              <%= f.input :phone %>
+              <%= f.input :description %>
+            </div>
+
+            <div class="form-actions" style="text-align: center">
+              <%= f.submit class: 'btn btn-primary', value: "Update" %>
+            </div>
+          <% end %>
+          <br>
+
+          <div style="text-align: center">
+              <%= link_to "Back", :back, class: 'btn btn-primary' %>
+          </div>
+
+        </div>
+
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="visible-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+
+      </div>
+    </div>
+  </div>
+</div>
