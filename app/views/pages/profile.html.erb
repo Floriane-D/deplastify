@@ -1,0 +1,33 @@
+<h1><%= @user.name %></h1>
+
+<div class="container">
+  <h3>My vouchers:</h3>
+  <% @vouchers.each do |voucher| %>
+  <br>
+    <p>Store: <%= voucher.store %></p>
+    <p>Benefit: </p>
+    <p>Valid until: </p>
+  <% end %>
+</div>
+
+ <div class="container">
+  <h3>My stores:</h3>
+  <br>
+  <ul>
+  <% @stores.each do |store| %>
+    <li><%= link_to store.name, store_path(store.id) %></li>
+  <% end %>
+  </ul>
+</div>
+
+<br>
+<div class="text-center">
+  <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
+</div>
+<br>
+<div class="text-center">
+  <%= link_to "Update your profile", edit_user_registration_path, class: "btn btn-primary" %>
+</div>
+<br>
+<p style="text-align: center">Unhappy? <%= link_to "Cancel my account", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
