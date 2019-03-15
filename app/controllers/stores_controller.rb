@@ -1,10 +1,10 @@
 class StoresController < ApplicationController
+  before_action :set_store, only: [:show, :edit, :update, :destroy]
   def index
     @stores = current_user.stores
   end
 
   def show
-    @store = Store.find(params[:id])
     @user = current_user
   end
 
@@ -16,33 +16,34 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
     @store.user = current_user
     if @store.save
-      redirect_to profile_path # CHANGE THIS IN THE FUTURE!
+      redirect_to profile_path
     else
       render :new
     end
   end
 
   def edit
-    @store = Store.find(params[:id])
   end
 
   def update
-    @store = Store.find(params[:id])
     @store.user = current_user
-    if @store.save
-      redirect_to profile_path # CHANGE THIS IN THE FUTURE!
+    if @store.update(store_params)
+      redirect_to profile_path
     else
       render :update
     end
   end
 
   def destroy
-    @store = Store.find(params[:id])
     @store.destroy
     redirect_to profile_path
   end
 
   private
+
+  def set_store
+    @store = Store.find(params[:id])
+  end
 
   def store_params
     params.require(:store).permit(:name, :address, :description, :phone)

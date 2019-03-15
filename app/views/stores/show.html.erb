@@ -1,17 +1,21 @@
 <h1><%= @store.name %></h1>
 
  <div class="container">
-    <br>
-    <p>Address: <%= @store.address %></p>
-    <br>
-    <p>Phone: <%= @store.phone %></p>
-    <br>
-    <p>Description: <%= @store.description %></p>
+  <br>
+  <p>Address: <%= @store.address %></p>
+  <br>
+  <p>Phone: <%= @store.phone %></p>
+  <br>
+  <p>Description: <%= @store.description %></p>
+  <br>
+  <%= render 'card-benefit', store: @store %>
 </div>
 
 <br>
-<div class="text-center">
-  <%= link_to "Update your store profile", edit_store_path, class: "btn btn-primary" %>
-</div>
+  <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
-<p style="text-align: center">Unhappy? <%= link_to "Remove my store", store_path(:store), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
+<br>
+    <%= link_to "Back", :back, class: 'btn btn-primary' %>
+<br>
+<p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %></p>
