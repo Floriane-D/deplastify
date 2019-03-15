@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :stores, :dependent => :destroy
   has_many :vouchers, :dependent => :destroy
-
+  mount_uploader :avatar, AvatarUploader
 end
