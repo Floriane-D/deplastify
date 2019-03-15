@@ -6,3 +6,7 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.mapboxgl-canvas {
+  position: relative !important; // Easy fix for the map. Check here if anything goes wrong again.
+}
