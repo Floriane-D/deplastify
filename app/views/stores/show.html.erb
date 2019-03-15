@@ -18,4 +18,4 @@
     <%= link_to "Back", :back, class: 'btn btn-primary' %>
 </div>
 <br>
-<p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(:store), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %></p>
