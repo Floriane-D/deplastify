@@ -1,12 +1,22 @@
 <h1><%= @store.name %></h1>
 
  <div class="container">
-    <br>
-    <p>Address: <%= @store.address %></p>
-    <br>
-    <p>Phone: <%= @store.phone %></p>
-    <br>
-    <p>Description: <%= @store.description %></p>
+  <br>
+  <p>Address: <%= @store.address %></p>
+  <br>
+  <p>Phone: <%= @store.phone %></p>
+  <br>
+  <p>Description: <%= @store.description %></p>
+  <br>
+  <% @benefits.each do |benefit| %>
+    <div class="card-benefit">
+      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"> -->
+      <div class="card-benefit-infos">
+        <h2><%= benefit.name %></h2>
+        <p><%= benefit.description %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <br>

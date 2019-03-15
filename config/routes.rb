@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
 
   resources :stores do
-    resources :benefits, only: [:new, :create, :edit, :update, :destroy]
+    resources :benefits, only: [:new, :create, :edit, :update, :destroy, :index]
       resources :vouchers, only: [:new, :create, :show]
   end
 
