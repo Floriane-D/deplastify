@@ -14,8 +14,14 @@
 <br>
   <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
-  <%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
+  <% if policy(@store).edit? %>
+    <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
+  <% end %>
 <br>
     <%= link_to "Back", :back, class: 'btn btn-primary' %>
 <br>
-<p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p style="text-align: center">Unhappy?
+  <% if policy(@store).destroy? %>
+    <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
+  <% end %>
+</p>

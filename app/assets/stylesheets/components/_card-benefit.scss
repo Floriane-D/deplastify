@@ -5,13 +5,17 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  justify-content: space-around;
   margin: 10px;
 }
 
-.card-benefit img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+.card-benefit-infos {
+  flex-grow: 1;
+}
+
+.card-benefit-modif {
+  flex: 0 0 10%;
+  margin-right: 30px;
 }
 
 .card-benefit h2 {
@@ -28,6 +32,6 @@
   margin-top: 8px;
 }
 
-.card-benefit .card-benefit-infos {
+.card-benefit .card-benefit-infos .card-benefit-modif {
   padding: 16px;
 }

@@ -22,7 +22,9 @@
 
 <br>
 <div class="text-center">
-  <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
+  <% if policy(Store).create? %>
+    <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
+  <% end %>
 </div>
 <br>
 <div class="text-center">
