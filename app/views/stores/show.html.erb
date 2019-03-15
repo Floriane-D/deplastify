@@ -11,11 +11,14 @@
   <%= render 'card-benefit', store: @store %>
 </div>
 
+<%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
-  <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
-  <%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
+<%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
 <br>
-    <%= link_to "Back", :back, class: 'btn btn-primary' %>
 <br>
+<%= link_to "Back", :back, class: 'btn btn-primary' %>
+<br>
+<br>
+
 <p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %></p>
