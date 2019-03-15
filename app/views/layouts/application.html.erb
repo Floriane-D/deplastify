@@ -16,7 +16,33 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+
+<!-- visible on tablet and larger screeens -->
+<div class="d-none d-sm-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6">
+        <%= yield %>
+      </div>
+      <div class="col-sm-3">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- visible on mobile -->
+<div class="d-block d-sm-none">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
