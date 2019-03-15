@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
+gem 'rqrcode'
+gem 'cloudinary', '~> 1.9.1'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -16,6 +18,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker', '3.5.5'
 gem 'faker'
+gem 'geocoder'
+gem "algoliasearch-rails"
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,4 +1,9 @@
 class BenefitsController < ApplicationController
+  def index
+    @store = Store.find(params[:store_id])
+    @benefits = @store.benefits
+  end
+
   def new
     @benefit = Benefit.new
     @store = Store.find(params[:store_id])
