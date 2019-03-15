@@ -21,7 +21,11 @@
 
 <br>
 <div class="text-center">
-  <%= link_to "Update your store profile", edit_store_path, class: "btn btn-primary" %>
+  <%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
 </div>
 <br>
-<p style="text-align: center">Unhappy? <%= link_to "Remove my store", store_path(:store), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div style="text-align: center">
+    <%= link_to "Back", :back, class: 'btn btn-primary' %>
+</div>
+<br>
+<p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(:store), data: { confirm: "Are you sure?" }, method: :delete %></p>

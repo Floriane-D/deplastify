@@ -16,7 +16,7 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
     @store.user = current_user
     if @store.save
-      redirect_to profile_path # CHANGE THIS IN THE FUTURE!
+      redirect_to profile_path
     else
       render :new
     end
@@ -29,8 +29,8 @@ class StoresController < ApplicationController
   def update
     @store = Store.find(params[:id])
     @store.user = current_user
-    if @store.save
-      redirect_to profile_path # CHANGE THIS IN THE FUTURE!
+    if @store.update(store_params)
+      redirect_to profile_path
     else
       render :update
     end
