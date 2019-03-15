@@ -1,47 +1,17 @@
-<div class="hidden-xs">
-  <div class="container">
-    <div class="row">
+<h1><%= @store.name %></h1>
 
-      <div class="col-sm-4">
-      </div>
-
-      <div class="col-sm-4">
-
-        <h1><%= @store.name %></h1>
-
-         <div class="container">
-            <br>
-            <p>Address: <%= @store.address %></p>
-            <br>
-            <p>Phone: <%= @store.phone %></p>
-            <br>
-            <p>Description: <%= @store.description %></p>
-        </div>
-
-        <br>
-        <div class="text-center">
-          <%= link_to "Update your store profile", edit_store_path, class: "btn btn-primary" %>
-        </div>
-        <br>
-        <p style="text-align: center">Unhappy? <%= link_to "Remove my store", store_path(:store), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      </div>
-
-      <div class="col-sm-4">
-      </div>
-
-    </div>
-  </div>
+ <div class="container">
+    <br>
+    <p>Address: <%= @store.address %></p>
+    <br>
+    <p>Phone: <%= @store.phone %></p>
+    <br>
+    <p>Description: <%= @store.description %></p>
 </div>
 
-<div class="visible-xs">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-
-
-
-      </div>
-    </div>
-  </div>
+<br>
+<div class="text-center">
+  <%= link_to "Update your store profile", edit_store_path, class: "btn btn-primary" %>
 </div>
+<br>
+<p style="text-align: center">Unhappy? <%= link_to "Remove my store", store_path(:store), data: { confirm: "Are you sure?" }, method: :delete %></p>
