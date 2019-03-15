@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_222812) do
+ActiveRecord::Schema.define(version: 2019_03_15_135057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,13 +51,12 @@ ActiveRecord::Schema.define(version: 2019_03_14_222812) do
 
   create_table "vouchers", force: :cascade do |t|
     t.string "status"
-    t.bigint "user_id"
-    t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "qrcode"
-    t.index ["store_id"], name: "index_vouchers_on_store_id"
-    t.index ["user_id"], name: "index_vouchers_on_user_id"
+    t.string "user_id"
+    t.bigint "benefit_id"
+    t.index ["benefit_id"], name: "index_vouchers_on_benefit_id"
   end
 
   create_table "working_hours", force: :cascade do |t|
@@ -72,7 +71,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_222812) do
 
   add_foreign_key "benefits", "stores"
   add_foreign_key "stores", "users"
-  add_foreign_key "vouchers", "stores"
-  add_foreign_key "vouchers", "users"
+  add_foreign_key "vouchers", "benefits"
   add_foreign_key "working_hours", "stores"
 end

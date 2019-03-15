@@ -7,15 +7,16 @@ class VouchersController < ApplicationController
 
   def create
     @voucher = Voucher.new()
-    @store = Store.find(params[:store_id])
-    @voucher.store = @store
+    @benefit = Benefit.find(params[:benefit_id])
+    @voucher.benefit = @benefit
 
-    @qrcode = RQRCode::QRCode.new(SecureRandom.uuid, :size => 4, :level => :h )
-    @voucher.qrcode = @qrcode
-
-    @voucher.status = "Not used"
+    # @qrcode = RQRCode::QRCode.new(SecureRandom.uuid, :size => 4, :level => :h )
+    # @voucher.qrcode = @qrcode
 
     @voucher.user = current_user
+    @voucher.status = "Not used"
+
+    @voucher.qrcode = "Hey #{@voucher.user.name}, your voucher with #{@voucher.benefit.store.name} has been prepared"
 
     if @voucher.save
       redirect_to store_path(@store)

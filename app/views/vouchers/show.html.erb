@@ -1,7 +1,8 @@
 <div class="card">
-  <%= raw @qrcode.as_html %>
+<!--   <%= raw @qrcode.as_html %> -->
+  <%= @voucher.user.name %>
 </div>
 
-<%= link_to "Add a dose", root_path, class: "btn btn-primary"%>
+<%= link_to "Go back to your profile", profilesss_path, class: "btn btn-primary"%>
 
 
