@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker', '3.5.5'
 gem 'faker'
 gem 'geocoder'
+gem "algoliasearch-rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
