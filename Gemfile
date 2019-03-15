@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker', '3.5.5'
 gem 'faker'
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
