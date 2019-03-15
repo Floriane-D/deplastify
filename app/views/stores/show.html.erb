@@ -8,24 +8,14 @@
   <br>
   <p>Description: <%= @store.description %></p>
   <br>
-  <% @store.benefits.each do |benefit| %>
-    <div class="card-benefit">
-      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"> -->
-      <div class="card-benefit-infos">
-        <h2><%= benefit.name %></h2>
-        <p><%= benefit.description %></p>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'card-benefit', store: @store %>
 </div>
 
 <br>
-<div class="text-center">
-  <%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
-</div>
+  <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
-<div style="text-align: center">
+  <%= link_to "Edit this store", edit_store_path, class: "btn btn-primary" %>
+<br>
     <%= link_to "Back", :back, class: 'btn btn-primary' %>
-</div>
 <br>
 <p style="text-align: center">Unhappy? <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %></p>
