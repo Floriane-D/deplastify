@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_142837) do
+ActiveRecord::Schema.define(version: 2019_03_15_135057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_142837) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
-    t.string "phone"
-    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -54,12 +51,12 @@ ActiveRecord::Schema.define(version: 2019_03_14_142837) do
 
   create_table "vouchers", force: :cascade do |t|
     t.string "status"
-    t.bigint "user_id"
-    t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["store_id"], name: "index_vouchers_on_store_id"
-    t.index ["user_id"], name: "index_vouchers_on_user_id"
+    t.string "qrcode"
+    t.string "user_id"
+    t.bigint "benefit_id"
+    t.index ["benefit_id"], name: "index_vouchers_on_benefit_id"
   end
 
   create_table "working_hours", force: :cascade do |t|
@@ -74,7 +71,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_142837) do
 
   add_foreign_key "benefits", "stores"
   add_foreign_key "stores", "users"
-  add_foreign_key "vouchers", "stores"
-  add_foreign_key "vouchers", "users"
+  add_foreign_key "vouchers", "benefits"
   add_foreign_key "working_hours", "stores"
 end
