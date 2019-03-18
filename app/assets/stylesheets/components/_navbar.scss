@@ -22,6 +22,8 @@
   position: absolute !important;
 }
 
+.navbar-nav {
+  flex-direction: row !important;
 .navbar-light .navbar-nav .nav-link {
   color: #B9D989;
 }
