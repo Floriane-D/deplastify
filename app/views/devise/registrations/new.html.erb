@@ -1,24 +1,31 @@
-<h2 style="text-align: center">Sign up:</h2>
+<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :name %>
-    <%= f.input :phone %>
-    <%= f.input :avatar, :label => "Add a profile picture" %>
-    <%= f.input :avatar_cache, as: :hidden %>
+    <h2>Sign up:</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :name %>
+        <%= f.input :phone %>
+        <%= f.input :avatar, :label => "Add a profile picture" %>
+        <%= f.input :avatar_cache, as: :hidden %>
+      </div>
+
+      <div class="form-actions" style="text-align: center">
+        <%= f.submit class: 'btn btn-primary', value: "Sign up" %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="form-actions" style="text-align: center">
-    <%= f.submit class: 'btn btn-primary', value: "Sign up" %>
-  </div>
-<% end %>
+</div>
