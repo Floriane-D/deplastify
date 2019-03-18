@@ -1,8 +1,13 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
-  padding-right: 20px;
-  padding-left: 20px;
+  height: 70px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,7 +15,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 56px;
+  width: 50px;
 }
 
 .navbar-expand > .container {
@@ -24,12 +29,15 @@
 
 .navbar-nav {
   flex-direction: row !important;
+}
+
 .navbar-light .navbar-nav .nav-link {
-  color: #B9D989;
+  color: #00604B;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
   color: #00604B;
+  opacity: 0.7;
 }
 
 .dropdown-item{
@@ -39,5 +47,5 @@
 .dropdown-item:hover{
    color: #00604B;
    background: #e3f4c8;
-   opacity: 0.7
+   opacity: 0.7;
 }

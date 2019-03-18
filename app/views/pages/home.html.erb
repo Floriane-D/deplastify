@@ -1,9 +1,7 @@
 <div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
 
-  <div class="col-lg-4 col-sm-6 col-xs-12">
+  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
-    <!-- UPDATE THE PATH BELOW!! -->
-    <div class="search-form">
     <h1> Deplastify! </h1>
       <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
         <%= f.input :address, id: 'search_address', :label => "Find a store near an address:", :label_html => { :class => 'h5' } %>
@@ -11,13 +9,12 @@
         <%= f.submit class: 'btn btn-primary', value: "Search" %>
         </div>
         <br>
-        <p>or</p>
-        <!-- UPDATE THE PATH BELOW!! -->
-        <div class="text-center">
-          <%= link_to "Find stores near me", root_path, class: "btn btn-primary" %>
-        </div>
       <% end %>
-    </div>
+      <p>or</p>
+      <!-- UPDATE THE PATH BELOW!! -->
+      <div class="text-center">
+          <%= link_to "Find stores near me", root_path, class: "btn btn-primary" %>
+      </div>
 
   </div>
 

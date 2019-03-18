@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 79px);
+  height: calc(100vh - 70px);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -24,7 +24,7 @@
   text-shadow: 2px 2px 10px white;
   font-weight: bold;
   text-align: center;
-  font-size: 18px;
+  font-size: 24px;
   margin-top: 5px;
   margin-bottom: 18px;
 }
@@ -37,8 +37,8 @@
   text-align: center;
 }
 
-.search-form {
+.banner-main-content {
   background-color: rgba(220, 220, 220, 0.7);
-  padding: 10px;
-  margin: 10px;
+  padding: 10px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
 }
