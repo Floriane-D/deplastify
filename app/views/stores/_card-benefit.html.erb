@@ -11,8 +11,15 @@
             <i class="far fa-edit"></i>
           <% end %>
         <% end %>
-        <%= link_to store_benefit_path(@store, benefit), data: { confirm: "Are you sure?" }, method: :delete do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if policy(benefit).destroy? %>
+          <%= link_to store_benefit_path(@store, benefit), data: { confirm: "Are you sure?" }, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+        <% if policy(benefit).edit? == false %>
+          <%= link_to "I want this voucher!" edit_store_benefit_path(@store, benefit) do %>
+          <i class="far fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
     </div>
