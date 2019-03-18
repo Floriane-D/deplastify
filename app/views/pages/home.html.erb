@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: url('<%= image_path "praia-suja.jpg" %>');">
   <h1> HOME </h1>
 </div>
-  <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
+  <%= simple_form_for(:search, url: root_path, method: :get, remote: :true) do |f| %>
     <%= f.input :address, id: 'search_address' %>
     <%= f.input :distance, :label => "Distance (km)", input_html: { type: :number } %>
     <div style="text-align: center">
