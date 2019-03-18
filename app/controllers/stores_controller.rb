@@ -1,7 +1,8 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+
   def index
-    @stores = current_user.stores
+    @stores = policy_scope(Store)
   end
 
   def show
@@ -10,11 +11,13 @@ class StoresController < ApplicationController
 
   def new
     @store = Store.new
+    authorize @store
   end
 
   def create
     @store = Store.new(store_params)
     @store.user = current_user
+    authorize @store
     if @store.save
       redirect_to profile_path
     else
@@ -43,6 +46,7 @@ class StoresController < ApplicationController
 
   def set_store
     @store = Store.find(params[:id])
+    authorize @store
   end
 
   def store_params
