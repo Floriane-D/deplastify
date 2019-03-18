@@ -3,7 +3,7 @@
   <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
     <h1> Deplastify! </h1>
-      <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
+      <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
         <%= f.input :address, id: 'search_address', :label => "Find a store near an address:", :label_html => { :class => 'h5' } %>
         <div style="text-align: center">
         <%= f.submit class: 'btn btn-primary', value: "Search" %>
@@ -11,9 +11,8 @@
         <br>
       <% end %>
       <p>or</p>
-      <!-- UPDATE THE PATH BELOW!! -->
       <div class="text-center">
-          <%= link_to "Find stores near me", root_path, class: "btn btn-primary" %>
+          <a href="#" class="btn btn-primary" id="location">Find near me</a>
       </div>
 
   </div>
