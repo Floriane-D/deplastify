@@ -1,17 +1,24 @@
-<div class="banner" style="background-image: url('<%= image_path "praia-suja.jpg" %>');">
-  <h1> HOME </h1>
-</div>
-  <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
-    <%= f.input :address, id: 'search_address' %>
-    <%= f.input :distance, :label => "Distance (km)", input_html: { type: :number } %>
-    <div style="text-align: center">
-    <%= f.submit class: 'btn btn-primary', value: "Search" %>
+<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
+
+  <div class="col-lg-4 col-sm-6 col-xs-12">
+
+    <!-- UPDATE THE PATH BELOW!! -->
+    <div class="search-form">
+    <h1> Deplastify! </h1>
+      <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
+        <%= f.input :address, id: 'search_address', :label => "Find a store near an address:", :label_html => { :class => 'h5' } %>
+        <div style="text-align: center">
+        <%= f.submit class: 'btn btn-primary', value: "Search" %>
+        </div>
+        <br>
+        <p>or</p>
+        <!-- UPDATE THE PATH BELOW!! -->
+        <div class="text-center">
+          <%= link_to "Find stores near me", root_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+
+  </div>
+
+</div>

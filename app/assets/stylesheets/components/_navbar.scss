@@ -18,8 +18,10 @@
   padding-left: 15px;
 }
 
-
-
 .navbar-nav .dropdown-menu {
   position: absolute !important;
+}
+
+.navbar-nav {
+  flex-direction: row !important;
 }
