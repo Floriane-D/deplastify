@@ -1,0 +1,36 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.banner h1 {
+  margin: 0;
+  color: black;
+  text-shadow: 2px 2px 10px white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+}
+
+.banner h2 {
+  margin: 0;
+  color: black;
+  text-shadow: 2px 2px 10px white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 18px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: black;
+  opacity: .8;
+  text-shadow: 1px 1px 10px white;
+  text-align: center;
+}

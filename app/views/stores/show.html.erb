@@ -11,14 +11,13 @@
   <%= render 'card-benefit', store: @store %>
 </div>
 
+<%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
-  <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
 <br>
   <% if policy(@store).edit? %>
     <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
   <% end %>
 <br>
-    <%= link_to "Back", :back, class: 'btn btn-primary' %>
 <br>
 <p style="text-align: center">Unhappy?
   <% if policy(@store).destroy? %>

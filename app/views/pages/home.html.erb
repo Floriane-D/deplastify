@@ -1,1 +1,17 @@
-<p>Home page</p>
+<div class="banner" style="background-image: url('<%= image_path "praia-suja.jpg" %>');">
+  <h1> HOME </h1>
+</div>
+  <%= simple_form_for(:search, url: root_path, method: :get) do |f| %>
+    <%= f.input :address, id: 'search_address' %>
+    <%= f.input :distance, :label => "Distance (km)", input_html: { type: :number } %>
+    <div style="text-align: center">
+    <%= f.submit class: 'btn btn-primary', value: "Search" %>
+    </div>
+  <% end %>
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

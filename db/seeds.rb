@@ -19,7 +19,8 @@ require 'faker'
 10.times do
   user = User.new(
     email:    Faker::Internet.unique.email,
-    password: "12345678"
+    password: "12345678",
+    remote_avatar_url: Faker::Avatar.image("my-own-slug", "50x50")
   )
   user.save!
 end
