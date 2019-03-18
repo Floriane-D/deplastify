@@ -1,11 +1,37 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :results]
 
   def home
-    @stores = Store.where.not(latitude: nil, longitude: nil)
-    if params[:search].present?
+  end
+
+  def profile
+    @user = current_user
+    @stores = @user.stores
+    @vouchers = @user.vouchers
+  end
+
+  def results
+  @stores = Store.where.not(latitude: nil, longitude: nil)
+
+    if params[:search].present? == false
+      search_address = "Paris, France"
+      search_distance = 5.01
+
+      search_coordinates = Geocoder.search(search_address).first.coordinates
+
+      stores_with_location_criteria = []
+
+      @stores.each do |store|
+        if store.distance_to(search_coordinates) < search_distance
+          stores_with_location_criteria << store
+        end
+      end
+
+    elsif params[:search].present? || params[:search].match?("^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$")
+
       search_address = params[:search][:address]
-      search_distance = params[:search][:distance].to_f
+
+      search_distance = 5.01
 
       search_coordinates = Geocoder.search(search_address).first.coordinates
 
@@ -17,10 +43,11 @@ class PagesController < ApplicationController
         end
       end
     else
-      search_address = "tour eiffel"
-      search_distance = 1.01
+      search_address = params[:search][:address]
 
-      search_coordinates = Geocoder.search(search_address).first.coordinates
+      search_distance = 5.01
+
+      search_coordinates = search_address.split(' ')
 
       stores_with_location_criteria = []
 
@@ -39,11 +66,5 @@ class PagesController < ApplicationController
         infoWindow: render_to_string(partial: "store-card", locals: { store: store })
       }
     end
-  end
-
-  def profile
-    @user = current_user
-    @stores = @user.stores
-    @vouchers = @user.vouchers
   end
 end
