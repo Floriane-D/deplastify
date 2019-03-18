@@ -1,25 +1,41 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
+  width: 56px;
 }
-
 
 .navbar-expand > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
 
-
-
 .navbar-nav .dropdown-menu {
   position: absolute !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #B9D989;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #00604B;
+}
+
+.dropdown-item{
+   color: #00604B;
+}
+
+.dropdown-item:hover{
+   color: #00604B;
+   background: #e3f4c8;
+   opacity: 0.7
 }
