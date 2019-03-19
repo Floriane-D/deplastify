@@ -23,17 +23,30 @@ require 'faker'
     remote_avatar_url: Faker::Avatar.image("my-own-slug", "50x50")
   )
   user.save!
+  p "user created"
 end
 
 
 5.times do
   store = Store.new(
     name:    Faker::Company.unique.name,
-    address: ["135 avenida Sao Sebastiao, Rio de Janeiro", "144 rua bom pastor , Rio de Janeiro", "74 Moura Brasil , Rio de Janeiro", "85 rua Rodolfo Dantas, Rio de Janeiro", "89 rua do Catete, Rio de Janeiro"].sample,
+    address: ["Rua Visconde de Pirajá, 550 - Ipanema - Rio de Janeiro - RJ, 22410-003",
+    "Rua das Laranjeiras, 540 - Cosme Velho - Rio de Janeiro - RJ, 22241-090",
+    "Avenida Nossa Sra. de Copacabana, 540 - Copacabana - Rio de Janeiro - RJ, 22050-002",
+    "Avenida Vieira Souto, 460 - Ipanema - Rio de Janeiro - RJ, 22420-006",
+    "Rua Rodolfo Dantas, 85 - Copacabana - Rio de Janeiro - RJ, 22020-040",
+    "Rua Bom Pastor, 544 - Tijuca - Rio de Janeiro - RJ, 20521-060",
+    "Rua Moura Brasil, 74 - Laranjeiras - Rio de Janeiro - RJ, 22231-200",
+    "Ladeira da Glória, 26 - Glória - Rio de Janeiro - RJ, 22211-120",
+    "Rua Voluntários da Pátria, 190 - Botafogo - Rio de Janeiro - RJ, 22270-010",
+    "Rua São Clemente, 185 - Botafogo - Rio de Janeiro - RJ, 22250-040",
+    "Rua Bambina, 54 - Botafogo - Rio de Janeiro - RJ, 22251-050",
+    "Rua Mena Barreto, 161 - Botafogo - Rio de Janeiro - RJ, 22271-100"].sample,
     description: Faker::Commerce.department(3),
     phone: ["21-99-234-234","21-99-45-456","21-99-789-789","21-99-678-678","21-99-654-654"].sample,
-    user_id:["1", "2", "3", "4", "5"].shuffle!.pop
+    user: User.all.sample
   )
+  p "store created"
   store.save!
 end
 
