@@ -21,8 +21,9 @@
 }
 .store-card-description {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 10px;
+  text-align: left;
 }
 .store-card-description h2 {
   font-size: 26px;
@@ -58,6 +59,11 @@
 
 .store-card-button {
   position: absolute;
-  top: -30px;
+  top: 10px;
   left: 10px;
   font-size: 21px;
+}
+
+.card-button:hover {
+  background-color: #275b8e;
+}
