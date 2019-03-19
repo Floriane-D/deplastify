@@ -1,4 +1,4 @@
-class BenefitsController < ApplicationController
+  class BenefitsController < ApplicationController
   def index
     @store = Store.find(params[:store_id])
     @benefits = policy_scope(Benefit)

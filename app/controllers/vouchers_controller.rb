@@ -2,39 +2,32 @@ class VouchersController < ApplicationController
   require 'rqrcode'
 
   def index
-    @vouchers = current_user.vouchers
+    @vouchers = policy_scope(Voucher)
   end
 
   def create
     @voucher = Voucher.new()
+
     @benefit = Benefit.find(params[:benefit_id])
     @voucher.benefit = @benefit
-
-    key = SecureRandom.uuid
-    @qr = RQRCode::QRCode.new(key, :size => 4, :level => :h )
-    @voucher.qrcode = @qr
 
     @voucher.user = current_user
     @voucher.status = "Not used"
 
-    # @voucher.qrcode = "Hey #{@voucher.user.name}, your voucher with #{@voucher.benefit.store.name} has been prepared"
+    @voucher.key_qrcode = SecureRandom.uuid
+
+    authorize @voucher
 
     if @voucher.save
-      redirect_to store_path(@store)
-      # flash[:notice] = "Congratulations! 🎉 Your voucher with #{@voucher.store.name} has been prepared"
+      redirect_to profile_path
+      flash[:notice] = "Congratulations #{@voucher.user.name} 🎉, your voucher with #{@voucher.benefit.store.name} has been prepared"
     else
-      render :new
+      flash[:alert] = "Something went wrong"
+      redirect_to store_path(@benefit.store)
     end
   end
 
   def show
     @voucher = Voucher.find(params[:id])
   end
-
-  private
-
-  # def voucher_params
-  #   params.require(:voucher).permit(:start_date, :end_date, :price)
-  # end
-
 end

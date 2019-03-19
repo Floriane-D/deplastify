@@ -4,9 +4,11 @@
   <h3>My vouchers:</h3>
   <% @vouchers.each do |voucher| %>
   <br>
-    <p>Store: <%= voucher.store %></p>
-    <p>Benefit: </p>
-    <p>Valid until: </p>
+    <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 5, :level => :h ) %>
+    <%= raw qr.as_html %>
+  <br>
+    <p>Store: <%= voucher.benefit.store.name %></p>
+    <p>Address: <%= voucher.benefit.store.address %></p>
   <% end %>
 </div>
 <br>
