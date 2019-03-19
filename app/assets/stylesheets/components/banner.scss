@@ -1,11 +1,12 @@
 .banner {
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 111px);
+  min-height: calc(100vh - 120px);
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
 }
 
 .banner h1 {
@@ -40,6 +41,6 @@
 .banner-main-content {
   background-color: rgba(220, 220, 220, 0.7);
   padding: 10px 20px 20px 20px;
-  margin: 10px 20px 20px 20px;
+  margin: 10px 20px 10px 20px;
   border-radius: 2%;
 }
