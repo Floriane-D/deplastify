@@ -4,6 +4,7 @@ class Store < ApplicationRecord
   has_many :working_hours, :dependent => :destroy
   has_many :benefits, :dependent => :destroy
   has_many :vouchers, through: :benefits
+  mount_uploader :picture, PictureUploader
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

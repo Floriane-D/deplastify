@@ -1,26 +1,34 @@
-<h1><%= @store.name %></h1>
+<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
+  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
- <div class="container">
-  <br>
-  <p>Address: <%= @store.address %></p>
-  <br>
-  <p>Phone: <%= @store.phone %></p>
-  <br>
-  <p>Description: <%= @store.description %></p>
-  <br>
-  <%= render 'card-benefit', store: @store %>
+    <h1><%= @store.name %></h1>
+
+     <div class="container">
+
+      <p>Address: <%= @store.address %></p>
+
+      <p>Phone: <%= @store.phone %></p>
+
+      <p>Description: <%= @store.description %></p>
+
+      <%= render 'card-benefit', store: @store %>
+
+      <%= cl_image_tag @store.picture, :height=>400, :width=>400, :crop=>"fill" %>
+    </div>
+
+    <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
+    <br>
+    <br>
+      <% if policy(@store).edit? %>
+        <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
+      <% end %>
+    <br>
+    <br>
+    <p style="text-align: center">Unhappy?
+      <% if policy(@store).destroy? %>
+        <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
+      <% end %>
+    </p>
+
+  </div>
 </div>
-
-<%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
-<br>
-<br>
-  <% if policy(@store).edit? %>
-    <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
-  <% end %>
-<br>
-<br>
-<p style="text-align: center">Unhappy?
-  <% if policy(@store).destroy? %>
-    <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
-  <% end %>
-</p>
