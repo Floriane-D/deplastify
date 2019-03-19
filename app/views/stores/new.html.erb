@@ -1,17 +1,24 @@
-<h2 style="text-align: center">Register your store:</h2>
+<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
+  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
-<%= simple_form_for @store do |f| %>
-  <%= f.error_notification %>
+    <h2 style="text-align: center">Register your store:</h2>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :phone %>
+    <%= simple_form_for @store do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :phone %>
+        <%= f.input :picture, :label => "Add a picture of your store" %>
+        <%= f.input :picture_cache, as: :hidden %>
+      </div>
+
+      <div class="form-actions" style="text-align: center">
+        <%= f.submit class: 'btn btn-primary', value: "Register" %>
+      </div>
+    <% end %>
+
   </div>
-
-  <div class="form-actions" style="text-align: center">
-    <%= f.submit class: 'btn btn-primary', value: "Register" %>
-  </div>
-<% end %>
-
+</div>
