@@ -6,46 +6,40 @@
    position: sticky;
    top: 0;
    z-index: 1;
-}
+   background: white;
+   height: 50px;
+   padding: 10px 5px;
+   align-items: center;
+   height: 100%;
+   font-size:14px;
+   color: #113F67;
+ }
 
 .footer {
-  background: #F4F4F4;
   display: flex;
   align-items: center;
-  height: 50px;
-  padding: 10px 10px;
-  color: rgba(0,0,0,0.3);
-  font-size:10px;
-  width:170px;
+  width:130px;
 }
 
 .footer-links {
   display: flex;
   align-items: center;
-  font-size:15px;
 }
 
 .footer-links a {
-  color: #113F67;
-  opacity: 0.7;
   text-decoration: none;
-  font-size: 15px;
-  padding: 10px 5px;
+  padding: 0px 5px;
+  color: #113F67;
 }
 
 .footer-links a:hover {
-  color:  #113F67;
-  opacity:1;
+  opacity:0.7;
 }
 
 
 .footer-copyright {
   text-align: right;
-  padding: 10px 10px;
-  color: #113F67;
-  opacity: 0.7;
-  font-size: 13px;
-  text-vertical-align: center;
+  margin-right: 5px
 }
 
 
