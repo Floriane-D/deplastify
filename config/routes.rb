@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :benefits, only: [:new, :create, :edit, :update, :destroy, :index] do
-      resources :vouchers, only: [:new, :create, :show] do
-        resources :qrcodes, only: [:new, :create, :show]
-      end
+      resources :vouchers, only: [:new, :create, :show, :destroy]
     end
   end
 

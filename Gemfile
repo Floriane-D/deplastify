@@ -11,6 +11,8 @@ gem 'redis'
 gem 'rqrcode'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
+# gem 'zxing'
+# gem 'zxing_cpp'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
