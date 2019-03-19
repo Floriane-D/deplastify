@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2019_03_15_140611) do
     t.text "description"
     t.date "start_date"
     t.date "end_date"
+    t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "store_id"
     t.index ["store_id"], name: "index_benefits_on_store_id"
   end
 
@@ -57,13 +57,11 @@ ActiveRecord::Schema.define(version: 2019_03_15_140611) do
   create_table "vouchers", force: :cascade do |t|
     t.string "status"
     t.bigint "user_id"
-    t.bigint "store_id"
+    t.bigint "benefit_id"
+    t.string "key_qrcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "qrcode"
-    t.bigint "benefit_id"
     t.index ["benefit_id"], name: "index_vouchers_on_benefit_id"
-    t.index ["store_id"], name: "index_vouchers_on_store_id"
     t.index ["user_id"], name: "index_vouchers_on_user_id"
   end
 
@@ -80,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_03_15_140611) do
   add_foreign_key "benefits", "stores"
   add_foreign_key "stores", "users"
   add_foreign_key "vouchers", "benefits"
-  add_foreign_key "vouchers", "stores"
   add_foreign_key "vouchers", "users"
   add_foreign_key "working_hours", "stores"
 end
