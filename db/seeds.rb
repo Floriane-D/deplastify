@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# ser.new(
+# User.new(
 #     email: marcusmaione@gmail.com,
 #     password: "12345678",
 #     name: Faker::Name.name,
@@ -13,17 +13,77 @@
 #   )
 #   user.save!
 # end
+camille = User.new(
+    name:               "Camille Huret",
+    phone:              "21-456-654",
+    avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
+    email:              "camillehuret@yahoo.com",
+    password:           "12345678",
+  )
+  camille.save!
+
+  floriane = User.new(
+    name:               "Floriane Didier",
+    phone:              "21-456-654",
+    avatar:             Rails.root.join("app/assets/images/floriane.jpg").open,
+    email:              "floriane@gmail.com",
+    password:           "12345678",
+  )
+  floriane.save!
+
+
+  lucas = User.new(
+    name:               "Lucas Martins",
+    phone:              "21-456-654",
+    avatar:             Rails.root.join("app/assets/images/lucas.jpg").open,
+    email:              "lucas@gmail.com",
+    password:           "12345678",
+  )
+  lucas.save!
+
+  marcus = User.new(
+    name:               "Marcus Maione",
+    phone:              "21-456-654",
+    avatar:             Rails.root.join("app/assets/images/marcus.jpg").open,
+    email:              "marcus@gmail.com",
+    password:           "12345678",
+  )
+  marcus.save!
+
+
+  pedro = User.new(
+    name:               "Pedro Meyer",
+    phone:              "21-456-654",
+    avatar:             Rails.root.join("app/assets/images/pedro.jpg").open,
+    email:              "pedro@gmail.com",
+    password:           "12345678",
+  )
+  pedro.save!
+
+wagon = Store.new(
+    name:    "Le Wagon",
+    address: "Ladeira da Glória 26, Rio de Janeiro, Rio de Janeiro, Brasil",
+    description: "Best Ecological Codding Bootcamp on the planet",
+    phone: "21-99-234-234",
+    user: User.all.fifth,
+    picture: Rails.root.join("app/assets/images/wagon.jpg").open,
+  )
+  wagon.save!
+
+
+
 
 require 'faker'
 
 10.times do
   user = User.new(
-    email:    Faker::Internet.unique.email,
-    password: "12345678",
-    remote_avatar_url: Faker::Avatar.image("my-own-slug", "50x50")
+    name:               Faker::Name.name,
+    phone:              Faker::PhoneNumber.phone_number,
+    avatar:             Faker::Avatar.image,
+    email:              Faker::Internet.unique.email,
+    password:           "12345678",
   )
   user.save!
-  p "user created"
 end
 
 
@@ -31,24 +91,24 @@ end
   store = Store.new(
     name:    Faker::Company.unique.name,
     address: ["Rua General Polidoro 166, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Visconde de Pirajá 550, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua das Laranjeiras 540, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Avenida Nossa Sra. de Copacabana 540, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Avenida Vieira Souto 460, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Rodolfo Dantas 85, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Bom Pastor 544, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Moura Brasil 74, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Ladeira da Glória 26, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Voluntários da Pátria, 190 Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua São Clemente 185, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Bambina 54, Rio de Janeiro, Rio de Janeiro, Brasil",
-    "Rua Mena Barreto 161, Rio de Janeiro, Rio de Janeiro, Brasil"].sample,
+
+   "Rua Visconde de Pirajá 550, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua das Laranjeiras 540, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Avenida Nossa Sra. de Copacabana 540, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Avenida Vieira Souto 460, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua Rodolfo Dantas 85, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua Bom Pastor 544, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua Moura Brasil 74, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Ladeira da Glória 26, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua Voluntários da Pátria, 190 Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua São Clemente 185, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua Bambina 54, Rio de Janeiro, Rio de Janeiro, Brasil",
+   "Rua Mena Barreto 161, Rio de Janeiro, Rio de Janeiro, Brasil"].sample,
     description: Faker::Commerce.department(3),
-    remote_picture_url: ["https://cdn.pixabay.com/photo/2017/11/06/11/36/store-2923410_960_720.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fachada_do_Salvador_Norte_Shoping.jpg/800px-Fachada_do_Salvador_Norte_Shoping.jpg"].sample,
+    remote_picture_url: ["https://cdn.pixabay.com/photo/2017/11/06/11/36/store-2923410_960_720.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fachada_do_Salvador_Norte_Shoping.jpg/800px-Fachada_do_Salvador_Norte_Shoping.jpg"].sample,
     phone: ["21-99-234-234","21-99-45-456","21-99-789-789","21-99-678-678","21-99-654-654"].sample,
     user: User.all.sample
   )
-  p "store created"
   store.save!
 end
 
@@ -58,7 +118,7 @@ end
     week_day: 1,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["17h00", "18h00","19h00","20h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
@@ -68,7 +128,7 @@ end
     week_day: 2,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["17h00", "18h00","19h00","20h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
@@ -78,7 +138,7 @@ end
     week_day: 3,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["17h00", "18h00","19h00","20h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
@@ -88,7 +148,7 @@ end
     week_day: 4,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["17h00", "18h00","19h00","20h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
@@ -98,7 +158,7 @@ end
     week_day: 5,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["17h00", "18h00","19h00","20h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
@@ -108,7 +168,7 @@ end
     week_day: 6,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["17h00", "18h00","19h00","20h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
@@ -118,7 +178,7 @@ end
     week_day: 7,
     start_time: ["8h30", "9h00", "10h00","11h00"].sample,
     end_time: ["12h00", "13h00"].sample,
-    store_id: ["1", "2", "3", "4", "5"].shuffle!.pop
+    store: Store.all.sample
   )
   working_hour.save!
 end
