@@ -11,7 +11,6 @@ class WorkingHoursController < ApplicationController
   def new
     @store = Store.find(params[:store_id])
     @working_hour = WorkingHour.new
-
   end
 
   def create
@@ -21,7 +20,8 @@ class WorkingHoursController < ApplicationController
       @working_hour.save
       if @working_hour.save
         redirect to store_path
-        else render :new
+      else
+        render :new
       end
   end
 
@@ -36,6 +36,7 @@ class WorkingHoursController < ApplicationController
     @working_hours.each do
       @working_hour.update(params[:working_hour])
       @working_hour.store = @store
+    end
   end
 
   def destroy
@@ -48,5 +49,4 @@ class WorkingHoursController < ApplicationController
     # Never trust user data!
     params.require(:working_hour).permit(:week_day, :start_time, :end_time)
   end
-
 end
