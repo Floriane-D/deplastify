@@ -91,6 +91,7 @@ end
   store = Store.new(
     name:    Faker::Company.unique.name,
     address: ["Rua General Polidoro 166, Rio de Janeiro, Rio de Janeiro, Brasil",
+
    "Rua Visconde de Pirajá 550, Rio de Janeiro, Rio de Janeiro, Brasil",
    "Rua das Laranjeiras 540, Rio de Janeiro, Rio de Janeiro, Brasil",
    "Avenida Nossa Sra. de Copacabana 540, Rio de Janeiro, Rio de Janeiro, Brasil",
