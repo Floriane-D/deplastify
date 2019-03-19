@@ -1,37 +1,44 @@
-<h1><%= @user.name %></h1>
-<br>
-<div class="container">
-  <h3>My vouchers:</h3>
-  <% @vouchers.each do |voucher| %>
-  <br>
-    <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 5, :level => :h ) %>
-    <%= raw qr.as_html %>
-  <br>
-    <p>Store: <%= voucher.benefit.store.name %></p>
-    <p>Address: <%= voucher.benefit.store.address %></p>
-  <% end %>
-</div>
-<br>
- <div class="container">
-  <h3>My stores:</h3>
 
-  <ul class="unordered-list">
-  <% @stores.each do |store| %>
-    <li><%= link_to store.name, store_path(store.id) %></li>
-  <% end %>
-  </ul>
-</div>
+<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
 
-<br>
-<div class="text-center">
-  <% if policy(Store).create? %>
-    <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
-  <% end %>
-</div>
-<br>
-<div class="text-center">
-  <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
-</div>
-<br>
-<p style="text-align: center">Unhappy? <%= link_to "Cancel your account", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
+    <h1><%= @user.name %></h1>
+    <br>
+    <div class="container">
+      <h3>My vouchers:</h3>
+      <% @vouchers.each do |voucher| %>
+      <br>
+        <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 5, :level => :h ) %>
+        <%= raw qr.as_html %>
+      <br>
+        <p>Store: <%= voucher.benefit.store.name %></p>
+        <p>Address: <%= voucher.benefit.store.address %></p>
+      <% end %>
+    </div>
+    <br>
+     <div class="container">
+      <h3>My stores:</h3>
+
+      <ul class="unordered-list">
+      <% @stores.each do |store| %>
+        <li><%= link_to store.name, store_path(store.id) %></li>
+      <% end %>
+      </ul>
+    </div>
+
+    <br>
+    <div class="text-center">
+      <% if policy(Store).create? %>
+        <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <br>
+    <div class="text-center">
+      <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
+    </div>
+    <br>
+    <p style="text-align: center">Unhappy? <%= link_to "Cancel your account", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  </div>
+</div>

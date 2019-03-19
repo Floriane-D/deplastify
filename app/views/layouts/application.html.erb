@@ -11,35 +11,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <!-- visible on tablet and larger screeens -->
-    <div class="" style="text-align: center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- visible on mobile -->
-    <div class="d-block d-sm-none" style="text-align: center">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'shared/navbar' %>
+    <%= yield %>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
   </body>
+   <%= render 'shared/footer' %>
 </html>
