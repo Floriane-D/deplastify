@@ -4,7 +4,7 @@
 
     <h1> Deplastify! </h1>
       <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
-        <%= f.input :address, id: 'search_address', :label => "Find a store near an address:", :label_html => { :class => 'h5' } %>
+        <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Find a store near an address:", :label_html => { :class => 'h5' } %>
         <div style="text-align: center">
         <%= f.submit class: 'btn btn-primary', value: "Search" %>
         </div>
@@ -12,7 +12,7 @@
       <% end %>
       <p>or</p>
       <div class="text-center">
-          <a href="#" class="btn btn-primary" id="location">Find near me</a>
+          <a href="#" class="btn btn-primary" id="my-location">Find near me</a>
       </div>
 
   </div>
