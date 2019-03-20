@@ -23,17 +23,15 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
-.nav-item {
-  margin-left: 12px;
-}
+
 
 .btn-primary {
   color: white;
   background-color: #113F67 !important;
   border-color: #113F67 !important;
   margin: 10px !important;
-  font-family: "Raleway", "Helvetica", "sans-serif";
-  }
+  font-family: "Roboto" !important;
+}
 
 h1 {
   text-align: center !important;
@@ -43,6 +41,11 @@ h1 {
 h3 {
   text-align: center !important;
   padding: 0px !important;
+}
+
+h4 {
+  text-align: center !important;
+  padding-top: 16px !important;
 }
 
 p {
