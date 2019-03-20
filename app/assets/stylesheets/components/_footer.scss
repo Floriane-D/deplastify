@@ -1,19 +1,24 @@
-
 .row-footer {
   display: flex;
   justify-content: space-between;
   flex-shrink: 0;
-   position: fixed;
-   bottom: 0;
-   z-index: 1;
-   background: white;
-   height: 50px;
-   padding: 10px 5px;
-   align-items: center;
-   width: 100%;
-   font-size:14px;
-   color: #113F67;
+  position: static;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgb(245,245,245);
+  height: 50px;
+  padding: 10px 5px;
+  align-items: center;
+  width: 100%;
+  font-size:14px;
+  color: #212529;
  }
+
+@media (min-width: 576px) {
+  .row-footer {
+    position: fixed;
+  }
+}
 
 .footer {
   display: flex;
@@ -29,7 +34,7 @@
 .footer-links a {
   text-decoration: none;
   padding: 0px 5px;
-  color: #113F67;
+  color: #212529;
 }
 
 .footer-links a:hover {
