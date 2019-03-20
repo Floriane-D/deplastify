@@ -5,12 +5,13 @@
   </div>
   <div class="main-content">
     <div class="text-center">
-      <a href="#" class="btn btn-primary" id="location">Find a participant store near me</a>
+       <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
     </div>
     <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
-      <%= f.input :address, id: 'search_address', :label => "Or find a store near a specific address", html: {class: "search_input"} %>
+      <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Or find a store near a specific address", html: {class: "search_input"} %>
       <div style="text-align: center">
       <%= f.submit class: 'btn btn-primary', value: "Search" %>
+
       </div>
     <% end %>
   </div>
