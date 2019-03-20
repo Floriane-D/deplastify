@@ -1,10 +1,9 @@
-
-
 <div class="container">
+
   <div class="info-box">
 
     <div class="picture-box">
-      <%= cl_image_tag @store.picture, :height=>400, :width=>400, :crop=>"fill" %>
+      <%= cl_image_tag @store.picture, :height=>400, :width=>400, :crop=>"fill", class: "framed-picture" %>
     </div>
 
     <div class="description-box">
@@ -12,7 +11,7 @@
 
       <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= @store.address %></p>
 
-      <p class="text-center"><i class="fas fa-phone"></i>: <%= @store.phone %></p>
+      <p class="text-center" id="phone"><i class="fas fa-phone"></i>: <%= @store.phone %></p>
 
       <p class="text-center"><strong>About:</strong></p>
 
@@ -26,11 +25,9 @@
      <div class="button-collection">
     <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
     <br>
-    <br>
       <% if policy(@store).edit? %>
         <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
       <% end %>
-    <br>
     <br>
       <% if policy(@store).destroy? %>
         <p style="text-align: center">Unhappy?
