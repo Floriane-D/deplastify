@@ -11,28 +11,27 @@
 
       <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= @store.address %></p>
 
-      <p class="text-center" id="phone"><i class="fas fa-phone"></i>: <%= @store.phone %></p>
-
-      <p class="text-center"><strong>About:</strong></p>
-
-      <p class="text-center"><%= @store.description %></p>
+      <p class="text-center" id="phone"><i class="fas fa-phone"></i> <%= @store.phone %></p>
     </div>
 
     <div class="benefit-box">
       <%= render 'card-benefit', store: @store %>
     </div>
 
+    <div class="about-box">
+      <p class="text-center"><strong>About:</strong></p>
+
+      <p class="text-center" id="store-description"><%= @store.description %></p>
+    </div>
+
+
      <div class="button-collection">
-    <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
-    <br>
+      <% if policy(@store).edit? %>
+      <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
+      <% end %>
+
       <% if policy(@store).edit? %>
         <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
-      <% end %>
-    <br>
-      <% if policy(@store).destroy? %>
-        <p style="text-align: center">Unhappy?
-        <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
-        </p>
       <% end %>
     </div>
   </div>
