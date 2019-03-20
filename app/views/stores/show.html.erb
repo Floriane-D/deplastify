@@ -1,21 +1,29 @@
-<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
-  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
 
-    <h1><%= @store.name %></h1>
 
-     <div class="container">
+<div class="container">
+  <div class="info-box">
 
-      <p>Address: <%= @store.address %></p>
-
-      <p>Phone: <%= @store.phone %></p>
-
-      <p>Description: <%= @store.description %></p>
-
-      <%= render 'card-benefit', store: @store %>
-
+    <div class="picture-box">
       <%= cl_image_tag @store.picture, :height=>400, :width=>400, :crop=>"fill" %>
     </div>
 
+    <div class="description-box">
+      <h1 class="text-center"><%= @store.name %></h1>
+
+      <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= @store.address %></p>
+
+      <p class="text-center"><i class="fas fa-phone"></i>: <%= @store.phone %></p>
+
+      <p class="text-center"><strong>About:</strong></p>
+
+      <p class="text-center"><%= @store.description %></p>
+    </div>
+
+    <div class="benefit-box">
+      <%= render 'card-benefit', store: @store %>
+    </div>
+
+     <div class="button-collection">
     <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
     <br>
     <br>
@@ -24,11 +32,15 @@
       <% end %>
     <br>
     <br>
-    <p style="text-align: center">Unhappy?
       <% if policy(@store).destroy? %>
+        <p style="text-align: center">Unhappy?
         <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
+        </p>
       <% end %>
-    </p>
-
+    </div>
   </div>
 </div>
+
+
+
+
