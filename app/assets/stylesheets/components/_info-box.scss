@@ -4,38 +4,44 @@
 }
 
 .picture-box {
-border-bottom: 1px solid #d8d8d8;
-padding: 15px 0;
+  border-bottom: 1px solid #d8d8d8;
+  padding: 15px 0 !important;
 }
 
 .description-box {
-border-bottom: 1px solid #d8d8d8;
-padding-top: 15px;
+  border-bottom: 1px solid #d8d8d8;
 }
 
 .description-box > h1 {
-border-bottom: 1px solid #d8d8d8;
-padding-bottom: 15px;
-margin: 0
+  border-bottom: 1px solid #d8d8d8;
 }
 
 .description-box > p {
-margin: 15px 0;
+  margin: 0 !important;
 }
 
+.about-box > p {
+  margin: 0 !important;
+}
 .benefit-box {
-border-bottom: 1px solid #d8d8d8;
-padding: 15px 0;
+  border-bottom: 1px solid #d8d8d8;
+  padding: 15px 0;
 }
 
 .button-collection {
-padding: 15px 0;
-display: flex;
-flex-direction: column;
-align-items: center;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #phone {
-border-bottom: 1px solid #d8d8d8;
-padding-bottom: 15px
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 15px;
+  padding-top: 0 !important;
+}
+
+#store-description {
+  padding-top: 0 !important;
+  text-align: justify !important;
 }

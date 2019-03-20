@@ -8,17 +8,17 @@
       <div class="card-benefit-mini-btn">
         <% if policy(benefit).edit? %>
           <%= link_to edit_store_benefit_path(@store, benefit) do %>
-            <i class="far fa-edit"></i>
+            <i class="far fa-edit" style="color:#1D4267"></i>
           <% end %>
         <% end %>
         <% if policy(benefit).destroy? %>
           <%= link_to store_benefit_path(@store, benefit), data: { confirm: "Are you sure?" }, method: :delete do %>
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt" style="color:#1D4267"></i>
           <% end %>
         <% end %>
       </div>
       <div class="card-benefit-button">
-        <%= link_to "I want this voucher!", store_benefit_vouchers_path(@store, benefit), method: :post, class: "btn btn-primary" %>
+        <%= link_to "Get the voucher!", store_benefit_vouchers_path(@store, benefit), method: :post, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
