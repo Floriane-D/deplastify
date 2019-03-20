@@ -1,12 +1,12 @@
 .card-benefit {
   overflow: hidden;
   height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: #fcfcfc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin: 10px;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
 .card-benefit-infos {
@@ -15,7 +15,16 @@
 
 .card-benefit-modif {
   flex: 0 0 10%;
-  margin-right: 30px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #1D4267;
+  flex-direction: column;
+}
+
+.card-benefit-mini-btn {
+  display: flex;
+  justify-content: space-around;
 }
 
 .card-benefit h2 {

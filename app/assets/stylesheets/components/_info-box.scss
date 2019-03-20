@@ -1,0 +1,41 @@
+.framed-picture {
+  height: 100%;
+  width: 100%;
+}
+
+.picture-box {
+border-bottom: 1px solid #d8d8d8;
+padding: 15px 0;
+}
+
+.description-box {
+border-bottom: 1px solid #d8d8d8;
+padding-top: 15px;
+}
+
+.description-box > h1 {
+border-bottom: 1px solid #d8d8d8;
+padding-bottom: 15px;
+margin: 0
+}
+
+.description-box > p {
+margin: 15px 0;
+}
+
+.benefit-box {
+border-bottom: 1px solid #d8d8d8;
+padding: 15px 0;
+}
+
+.button-collection {
+padding: 15px 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#phone {
+border-bottom: 1px solid #d8d8d8;
+padding-bottom: 15px
+}
