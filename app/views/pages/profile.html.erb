@@ -5,24 +5,11 @@
 
     <h1><%= @user.name %></h1>
     <br>
-    <div class="container">
-      <h3>My vouchers:</h3>
-      <% @vouchers.each do |voucher| %>
-      <br>
-        <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 5, :level => :h ) %>
-        <%= raw qr.as_html %>
-      <br>
-        <p>Store: <%= voucher.benefit.store.name %></p>
-        <p>Address: <%= voucher.benefit.store.address %></p>
-        <% if policy(voucher).destroy? %>
-          <%= link_to "Mark this voucher as used", store_benefit_voucher_path(voucher.benefit.store, voucher.benefit, voucher), method: :delete, class: "btn btn-primary" %>
-        <% end %>
-      <% end %>
-    </div>
-    <br>
-     <div class="container">
-      <h3>My stores:</h3>
+    <%= render 'vouchers-available', vouchers: @vouchers %>
+    <%= render 'vouchers-used', vouchers: @vouchers %>
 
+    <div class="container">
+      <h3>My stores:</h3>
       <ul class="unordered-list">
       <% @stores.each do |store| %>
         <li><%= link_to store.name, store_path(store.id) %></li>
@@ -30,13 +17,12 @@
       </ul>
     </div>
 
-    <br>
     <div class="text-center">
       <% if policy(Store).create? %>
         <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
       <% end %>
     </div>
-    <br>
+
     <div class="text-center">
       <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
     </div>
