@@ -1,5 +1,5 @@
 .store-card {
-  height: 255px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -23,15 +23,20 @@
   position: absolute;
   bottom: 0px;
   left: 10px;
-  text-align: left;
 }
 .store-card-description h2 {
   font-size: 26px;
+  text-align: left !important;
+  margin: 0 !important;
 }
 .store-card-description p {
   font-size: 14px;
   opacity: 0.8;
   font-weight: 400;
+  text-align: left !important;
+  margin-top: 7px !important;
+  margin-bottom: 12px !important;
+  padding: 0 !important;
 }
 .store-card-link {
   position: absolute;
@@ -59,8 +64,8 @@
 
 .store-card-button {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0px;
+  left: 0px;
   font-size: 21px;
 }
 
