@@ -3,7 +3,7 @@
 
   <div class="col-lg-4 col-sm-6 col-xs-12">
 
-    <h1> Welcome on your profile page <%=@user.name %>!</h1>
+    <h4> Welcome <%=@user.name %>!</h4>
     <h3>Your available vouchers:</h3>
     <%= render 'vouchers-available', vouchers: @vouchers %>
     <%= render 'vouchers-used', vouchers: @vouchers %>
