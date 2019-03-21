@@ -1,31 +1,58 @@
 .card-benefit {
   overflow: hidden;
   height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: #fcfcfc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin: 10px;
+  justify-content: space-between;
+  margin: 10px 0;
+  background-color: rgb(245, 245, 245);
 }
 
 .card-benefit-infos {
   flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.card-benefit-infos > h3 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0 16px !important;
+}
+
+.card-benefit-infos > p {
+  font-size: 1rem;
+  margin-top: 0 !important;
+  margin-bottom: 20px;
 }
 
 .card-benefit-modif {
   flex: 0 0 10%;
-  margin-right: 30px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #1D4267;
+  flex-direction: column;
+}
+
+.card-benefit-mini-btn {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none !important;
+  color: #113F67 !important;
 }
 
 .card-benefit h2 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0;
 }
 
 .card-benefit p {
-  font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;

@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  background: white;
+  background-color: rgb(245,245,245);
   height: 70px;
   padding: 0px 20px;
   display: flex;
@@ -8,6 +8,25 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.nav-item {
+  margin-left: 12px;
+}
+
+.nav-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-lewagon h5 {
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+.navbar-brand {
+  margin-right: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -32,20 +51,20 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #113F67;
+  color: #212529;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #113F67;
+  color: #212529;
   opacity: 0.6;
 }
 
 .dropdown-item{
-   color: #113F67;
+   color: #212529;
 }
 
 .dropdown-item:hover{
-   color: #113F67;
+   color: #212529;
    background: #1cb3c8;
    opacity: 0.7;
 }
