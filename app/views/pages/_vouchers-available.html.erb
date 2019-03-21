@@ -1,4 +1,4 @@
-<div class="container available_vouchers">
+
   <% vouchers_available = @vouchers.select {|voucher| voucher.status == "Not used"} %>
   <% if vouchers_available.empty? == false %>
 
@@ -14,7 +14,7 @@
         <% if policy(voucher).update? %>
           <%= link_to "Mark this voucher as used", store_benefit_voucher_path(voucher.benefit.store, voucher.benefit, voucher), method: :patch, class: "btn btn-primary" %>
         <% end %>
-
+      </div>
     <% end %>
 
     <% else %>
@@ -23,7 +23,7 @@
         <div class="text-center">
           <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
         </div>
-      </div>
+
 
   <% end %>
-</div>
+
