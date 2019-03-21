@@ -19,8 +19,10 @@
 
     <% else %>
       <div class = "voucher-card">
-        <p>You have no voucher available at the moment. Do you want to deposit plastic to one of our partner store and benefit from its reward?</p>
-        <div class = text-center><%= link_to "Find a store collecting plastic", root_path, class: "btn btn-primary" %></div>
+        <p>You have no vouchers available at the moment.</p>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
+        </div>
       </div>
 
   <% end %>
