@@ -12,12 +12,9 @@
   position: relative !important; // Easy fix for the map. Check here if anything goes wrong again.
 }
 
-$topbar-height: 70px;
-$general-padding: 16px;
-
 .map-button {
   position: fixed;
   z-index: 1;
-  top: $topbar-height + $general-padding;
-  left: $general-padding;
+  top: 65px;
+  left: 10px;
 }
