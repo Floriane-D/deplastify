@@ -23,6 +23,14 @@ class StorePolicy < ApplicationPolicy
     # - user:   the `current_user` signed in with Devise.
   end
 
+  def scanqr?
+    record.user == user
+  end
+
+  def checkqr?
+    record.user == user
+  end
+
   def destroy?
     record.user == user
   end

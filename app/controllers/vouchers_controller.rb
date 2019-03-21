@@ -31,21 +31,13 @@ class VouchersController < ApplicationController
     authorize @voucher
   end
 
-  def edit
-    @voucher = Voucher.find(params[:id])
-    authorize @voucher
-  end
+  # def edit
+  #   @voucher = Voucher.find(params[:id])
+  #   authorize @voucher
+  # end
 
   def update
     @voucher = Voucher.find(params[:id])
-    decoded = params[:decoded_qr]
     authorize @voucher
-
-    if decoded == @voucher.key_qrcode
-      flash[:notice] = "Congratulations, the voucher of #{@voucher.user.name} is valid 🎉"
-      @voucher.update(status: "Used")
-    else
-      flash[:alert] = "Unfortunately, the voucher of #{@voucher.user.name} is not valid"
-    end
   end
 end

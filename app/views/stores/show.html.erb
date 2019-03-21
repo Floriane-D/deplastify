@@ -33,7 +33,7 @@
         <% end %>
       </div>
 
-      <%= link_to "Scan a QR code", store_benefit_voucher_path(voucher.benefit.store, voucher.benefit, voucher), method: :patch, class: "btn btn-primary" %>
+      <%= link_to "Scan a QR code", store_scan_qr_path(@store), method: :get, class: "btn btn-primary" %>
 
     <% end %>
 
