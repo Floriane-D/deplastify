@@ -2,9 +2,9 @@
   width: 100%;
   margin: 0px;
   padding: 0px;
-  background-color: white;
-  padding-bottom: 20px;
-  min-height: calc(100vh - 140px);
+  background-color: rgb(245,245,245);
+  // padding-bottom: 20px;
+  min-height: calc(100vh - 90px);
 }
 
 
@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgb(245,245,245);
 }
 
 .main-content h3{
@@ -26,3 +26,14 @@
   margin-top: 10px;
 }
 
+.search-box {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.search-button {
+  margin: 0px 0px 0px 4px !important;
+
+}
