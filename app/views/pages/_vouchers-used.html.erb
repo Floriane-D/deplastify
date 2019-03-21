@@ -1,14 +1,15 @@
-<div class="container">
-  <% vouchers_used = @vouchers.select {|voucher| voucher.status == "Used"} %>
-  <% if vouchers_used.empty? == false %>
-    <h3>Congratulations! Thanks to your ecofriendly contribution, you already enjoyed the following discounts:</h3>
-    <div class = "voucher-card">
+<% vouchers_used = @vouchers.select {|voucher| voucher.status == "Used"} %>
+<% if vouchers_used.empty? == false %>
+  <h4>Your used benefits:</h4>
+  <div class = "voucher-card">
+    <p>Congratulations! Thanks to your ecofriendly contribution, you already enjoyed the following discounts:</p>
     <ul class="unordered-list">
       <% vouchers_used.each do |voucher| %>
-        <li><%= link_to voucher.benefit.store.name, store_path(voucher.benefit.store.id) %></li>
+        <li><%= voucher.benefit.description %> at
+          <%= link_to voucher.benefit.store.name, store_path(voucher.benefit.store)%></li>
       <% end %>
-      </ul>
-    </div>
-    <p>Check out if they have new benefits</p>
-  <% end %>
-</div>
+    </ul>
+  </div>
+<% end %>
+
+

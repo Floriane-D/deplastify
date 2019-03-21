@@ -1,5 +1,10 @@
 .voucher-card {
-  padding: 20px 20px;
+  padding: 10px 10px;
+  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   overflow: hidden;
   height: auto;
   background-color: white;
@@ -8,8 +13,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
   opacity:1
+}
+
+.stores-box{
+  // padding: 0px 10px 10px 10px;
+  background-color: white;
+  padding: 10px 10px;
+  padding-top: 0px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: space-around;
+  opacity:1
+
 }
 
 table {
@@ -37,56 +56,13 @@ td.black { border-color: #000; }
 td.white { border-color: #fff; }
 
 .profile {
-  background-size: cover;
-  background-position: center;
   min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 50px;
-}
-
-.profile h1 {
-  margin: 0;
-  color: black;
-  text-shadow: 2px 2px 10px white;
-  font-weight: bold;
-  text-align: center;
-  font-size: 24px;
-  padding: 16px;
-  display: flex;
-}
-
-.profile h2 {
-  margin: 0;
-  color: black;
-  text-shadow: 2px 2px 10px white;
-  font-weight: bold;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 5px;
-  margin-bottom: 18px;
-}
-
-.profile h3 {
-  margin: 0;
-  color: black;
-  text-shadow: 2px 2px 10px white;
-  font-weight: bold;
-  text-align: center;
-  font-size: 18px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.profile p {
-  font-size: 16px;
-  color: black;
-  opacity: .8;
-  text-shadow: 1px 1px 10px white;
-  text-align: center;
-  margin-bottom: 5px;
-  margin-top: 5px
+  margin-top: 24px
 }
 
 .profile-main-content {
@@ -99,7 +75,8 @@ td.white { border-color: #fff; }
 }
 
 .cancellation p{
-  font-size: 8px;
+  font-size: 12px;
   padding:0px
 }
+
 
