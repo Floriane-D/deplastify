@@ -14,9 +14,11 @@
       <p class="text-center" id="phone"><i class="fas fa-phone"></i> <%= @store.phone %></p>
     </div>
 
-    <div class="benefit-box">
-      <%= render 'card-benefit', store: @store %>
-    </div>
+    <% unless @store.benefits.empty? %>
+      <div class="benefit-box">
+        <%= render 'card-benefit', store: @store %>
+      </div>
+    <% end %>
 
     <div class="about-box">
       <p class="text-center"><strong>About:</strong></p>
