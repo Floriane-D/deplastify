@@ -1,6 +1,6 @@
 import "bootstrap";
-import "results";
-import "home";
+// import "results";
+// import "home";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 
