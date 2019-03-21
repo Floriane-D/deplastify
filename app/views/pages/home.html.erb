@@ -1,18 +1,23 @@
 <div class="container-mobile col-lg-4 col-sm-6 col-xs-12">
+
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.5) 0%, rgba(0,36,61,0.5) 50%), url('<%= image_path "temp-background.jpg" %>');">
     <h3>Trade plastic litter</h3>
     <h3>for discounts</h3>
   </div>
+
   <div class="main-content">
+
     <div class="text-center">
        <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
     </div>
-    <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
-      <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Or find a store near a specific address", html: {class: "search_input"} %>
-      <div style="text-align: center">
-      <%= f.submit class: 'btn btn-primary', value: "Search" %>
 
+    <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
+      <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Find a store near a specific address", html: {class: "search_input"} %>
+      <div style="text-align: center">
+        <%= f.submit class: 'btn btn-primary', value: "Search" %>
       </div>
     <% end %>
+
   </div>
+
 </div>

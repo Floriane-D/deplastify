@@ -33,6 +33,10 @@ $border-radius-small: 2px;
   font-family: "Roboto" !important;
 }
 
+.form-inputs {
+  min-width: 296px;
+}
+
 h1 {
   text-align: center !important;
   padding: 16px !important;
@@ -46,6 +50,7 @@ h3 {
 h4 {
   text-align: center !important;
   padding-top: 16px !important;
+  margin-bottom: 0px !important;
 }
 
 p {

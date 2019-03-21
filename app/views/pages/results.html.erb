@@ -1,10 +1,12 @@
 <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
+
     <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Find a store near a specific address", html: {class: "search_input"} %>
     <div class="buttons">
     <%= f.submit class: 'btn btn-primary', value: "Search" %>
     <a href="#" class="btn btn-primary" id="my-location">Find near me</a>
     </div>
   <% end %>
+
 <div
   id="map"
   style="width: 100%;
