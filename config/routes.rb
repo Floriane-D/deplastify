@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
   get 'results', to: 'pages#results'
 
+  resources :vouchers, only: :update
+
   resources :stores do
     resources :benefits, only: [:new, :create, :edit, :update, :destroy, :index] do
-      resources :vouchers, only: [:create, :edit, :show, :destroy, :update]
+      resources :vouchers, only: [:create, :edit, :show]
     end
   end
 

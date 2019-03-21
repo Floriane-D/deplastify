@@ -1,20 +1,31 @@
-<h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</h1>
+<h1>Make sure the QR Code is valid</h1>
 
 <video id="preview"></video>
-<script type="text/javascript">
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-  scanner.addListener('scan', function (content) {
-    alert(content);
-  });
-  Instascan.Camera.getCameras().then(function (cameras) {
-    if (cameras.length > 0) {
-      scanner.start(cameras[0]);
-    } else {
-      console.error('No cameras found.');
-    }
-  }).catch(function (e) {
-    console.error(e);
-  });
-</script>
+
+
+<% content_for :after_js do %>
+  <script type="text/javascript">
+    console.log(Rails)
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+
+    scanner.addListener('scan', function (content) {
+      Rails.ajax({
+          type: 'PATCH',
+          // headers: { 'Content-Type': 'application/json' },
+          url: '<%= voucher_path(@voucher) %>?decoded_qr=' + content,
+          // data: { voucher: { decoded_qr: 'hello' } }
+      })
+    });
+    Instascan.Camera.getCameras().then(function (cameras) {
+      if (cameras.length > 0) {
+        scanner.start(cameras[0]);
+      } else {
+        console.error('No cameras found.');
+      }
+    }).catch(function (e) {
+      console.error(e);
+    });
+  </script>
+<% end %>
 
 

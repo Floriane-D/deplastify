@@ -13,6 +13,10 @@ class StorePolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    record.user == user
+  end
+
   def update?
     record.user == user
     # - record: the restaurant passed to the `authorize` method in controller
