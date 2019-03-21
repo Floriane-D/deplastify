@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   @stores = Store.where.not(latitude: nil, longitude: nil)
 
     if params[:search].present? == false
-      search_address = "Paris, France"
+      search_address = "Rio de Janeiro, Brazil"
       search_distance = 5.01
 
       search_coordinates = Geocoder.search(search_address).first.coordinates

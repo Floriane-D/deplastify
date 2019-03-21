@@ -1,4 +1,4 @@
-<h1 style="text-align: center">Edit <%= @store.name %>:</h1>
+<h3>Edit <%= @store.name %>:</h3>
 
 <%= simple_form_for(@store) do |f| %>
   <%= f.error_notification %>
@@ -20,4 +20,10 @@
 <div style="text-align: center">
     <%= link_to "Back", :back, class: 'btn btn-primary' %>
 </div>
+
+<% if policy(@store).destroy? %>
+  <p style="text-align: center">Unhappy?
+  <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
+  </p>
+<% end %>
 

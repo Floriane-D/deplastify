@@ -1,34 +1,42 @@
-<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
-  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
+<div class="container">
 
-    <h1><%= @store.name %></h1>
+  <div class="info-box">
 
-     <div class="container">
-
-      <p>Address: <%= @store.address %></p>
-
-      <p>Phone: <%= @store.phone %></p>
-
-      <p>Description: <%= @store.description %></p>
-
-      <%= render 'card-benefit', store: @store %>
-
-      <%= cl_image_tag @store.picture, :height=>400, :width=>400, :crop=>"fill" %>
+    <div class="picture-box">
+      <%= cl_image_tag @store.picture, :height=>400, :width=>400, :crop=>"fill", class: "framed-picture" %>
     </div>
 
-    <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
-    <br>
-    <br>
+    <div class="description-box">
+      <h1 class="text-center"><%= @store.name %></h1>
+
+      <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= @store.address %></p>
+
+      <p class="text-center" id="phone"><i class="fas fa-phone"></i> <%= @store.phone %></p>
+    </div>
+
+    <div class="benefit-box">
+      <%= render 'card-benefit', store: @store %>
+    </div>
+
+    <div class="about-box">
+      <p class="text-center"><strong>About:</strong></p>
+
+      <p class="text-center" id="store-description"><%= @store.description %></p>
+    </div>
+
+
+     <div class="button-collection">
+      <% if policy(@store).edit? %>
+      <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
+      <% end %>
+
       <% if policy(@store).edit? %>
         <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
       <% end %>
-    <br>
-    <br>
-    <p style="text-align: center">Unhappy?
-      <% if policy(@store).destroy? %>
-        <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
-      <% end %>
-    </p>
-
+    </div>
   </div>
 </div>
+
+
+
+
