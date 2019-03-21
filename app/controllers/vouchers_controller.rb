@@ -32,6 +32,15 @@ class VouchersController < ApplicationController
     @voucher = Voucher.find(params[:id])
   end
 
+  def edit
+    @voucher = Voucher.find(params[:id])
+    @benefit = Benefit.find(params[:benefit_id])
+    @store = Store.find(params[:store_id])
+    @voucher.benefit.store = @store
+    @voucher.benefit = @benefit
+    authorize @voucher
+  end
+
   def update
     url = 'https://1435f2ca.ngrok.io/?https://s1.qwant.com/thumbr/0x380/2/f/2b7517996af62b91531b6cd5a1fbcef0fa2cefd9df5cc50fbbc002fb3cc005/QR%20code%20example.jpg?u=https%3A%2F%2Finternationalbarcodes.net%2Fwp-content%2Fuploads%2F2017%2F04%2FQR%2520code%2520example.jpg&q=0&b=1&p=0&a=1'
     @voucher = Voucher.find(params[:id])
