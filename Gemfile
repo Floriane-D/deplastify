@@ -11,6 +11,7 @@ gem 'redis'
 gem 'rqrcode'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
+gem 'serviceworker-rails'
 # gem 'zxing'
 # gem 'zxing_cpp'
 
