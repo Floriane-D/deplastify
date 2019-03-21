@@ -1,17 +1,27 @@
 <div class="container available_vouchers">
   <% vouchers_available = @vouchers.select {|voucher| voucher.status == "Not used"} %>
   <% if vouchers_available.empty? == false %>
-    <h3>Available vouchers:</h3>
+
     <% vouchers_available.each do |voucher| %>
-      <br>
-        <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 5, :level => :h ) %>
-        <%= raw qr.as_html %>
-      <br>
-        <p>Store: <%= voucher.benefit.store.name %></p>
-        <p>Address: <%= voucher.benefit.store.address %></p>
+    <div class = "voucher-card">
+      <div class ="qr-container">
+          <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 5, :level => :h ) %>
+          <%= raw qr.as_html %>
+      </div>
+        <p><u><%= voucher.benefit.store.name %></u></p>
+        <p><%= voucher.benefit.store.address %></p>
+        <p><%= voucher.benefit.description %></p>
         <% if policy(voucher).update? %>
           <%= link_to "Mark this voucher as used", store_benefit_voucher_path(voucher.benefit.store, voucher.benefit, voucher), method: :patch, class: "btn btn-primary" %>
         <% end %>
+
     <% end %>
+
+    <% else %>
+      <div class = "voucher-card">
+        <p>You have no voucher available at the moment. Do you want to deposit plastic to one of our partner store and benefit from its reward?</p>
+        <div class = text-center><%= link_to "Find a store collecting plastic", root_path, class: "btn btn-primary" %></div>
+      </div>
+
   <% end %>
 </div>

@@ -1,15 +1,16 @@
 
-<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
+<div class="profile">
 
-  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
+  <div class="col-lg-4 col-sm-6 col-xs-12">
 
-    <h1><%= @user.name %></h1>
-    <br>
+    <h1> Welcome on your profile page <%=@user.name %>!</h1>
+    <h3>Your available vouchers:</h3>
     <%= render 'vouchers-available', vouchers: @vouchers %>
     <%= render 'vouchers-used', vouchers: @vouchers %>
 
     <div class="container">
-      <h3>My stores:</h3>
+      <h3>Your collecting stores:</h3>
+      <p>Thanks for your contribution, you are amazing! <i class="fas fa-heart"></i></p>
       <ul class="unordered-list">
       <% @stores.each do |store| %>
         <li><%= link_to store.name, store_path(store.id) %></li>
@@ -24,10 +25,13 @@
     </div>
 
     <div class="text-center">
-      <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
+      <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
     </div>
     <br>
-    <p style="text-align: center">Unhappy? <%= link_to "Cancel your account", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+    <div class = cancellation>
+      <p>Plastic pollution has been eradicated from the world surface, I can quit this app!
+        <br>
+        <%= link_to "Cancel your account", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    </div>
   </div>
 </div>
