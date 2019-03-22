@@ -39,8 +39,8 @@
 
     <% end %>
 
-
-    <div class="button-collection">
+     <div class="button-collection">
+      <%= link_to "Back to results", results_path, class: "btn btn-primary" %>
       <% if policy(@store).edit? %>
         <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
       <% end %>
