@@ -12,6 +12,8 @@ gem 'rqrcode'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
 gem 'serviceworker-rails'
+gem 'omniauth-facebook'
+gem 'figaro'
 # gem 'zxing'
 # gem 'zxing_cpp'
 
