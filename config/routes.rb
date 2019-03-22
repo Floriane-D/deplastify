@@ -5,11 +5,18 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
   get 'results', to: 'pages#results'
 
+  resources :vouchers, only: :update
+
   resources :stores do
+    member do
+      patch :checkqr
+    end
     resources :benefits, only: [:new, :create, :edit, :update, :destroy, :index] do
-      resources :vouchers, only: [:create, :edit, :show, :destroy, :update]
+      resources :vouchers, only: [:create, :edit, :show]
     end
   end
 
-  # get '/search/', :to => 'stores#search', :as => :search
+  get '/stores/:id/scanqr', to: 'stores#scanqr', :as => :store_scan_qr
+  # patch '/stores/:id/checkqr', to: 'stores#checkqr', :as => :store_check_qr
+
 end
