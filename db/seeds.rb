@@ -36,7 +36,6 @@ marcus = User.new(
 )
 marcus.save!
 
-
 pedro = User.new(
   name:               "Pedro Meyer",
   phone:              "21-456-654",

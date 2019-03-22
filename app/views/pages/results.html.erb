@@ -3,7 +3,7 @@
 </button>
 
 <div
-  id="map"
+  class="container-mobile" id="map"
   style="width: 100%;
   height: calc(100vh - 140px);"
   data-markers="<%= @markers.to_json %>"
@@ -24,11 +24,12 @@
         <div class="modal-body">
           <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Find a store near a specific address", html: {class: "search_input"} %>
         </div>
-        <div class="modal-footer">
-          <div class="buttons">
-            <%= f.submit class: 'btn btn-primary', value: "Search" %>
-            <a href="#" class="btn btn-primary" id="my-location">Find near me</a>
-          </div>
+        <div class="form-actions" style="text-align: center">
+          <%= f.submit class: 'btn btn-primary', value: "Search" %>
+        </div>
+        <br>
+        <div class="modal-footer" style="justify-content: center">
+          <a href="#" class="btn btn-primary" id="my-location">Find near me</a>
         </div>
       <% end %>
     </div>
