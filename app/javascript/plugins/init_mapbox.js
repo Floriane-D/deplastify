@@ -2,15 +2,17 @@ import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
 
-const buildMap = () => {
+const buildMap = (coords) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: coords,
+    zoom: 13 // starting zoom
   });
 };
 
-const addMarkersToMap = (map, markers) => {
+const addMarkersToMap = (map, markers, coords) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
@@ -19,20 +21,21 @@ const addMarkersToMap = (map, markers) => {
       .setPopup(popup)
       .addTo(map);
   });
+
+  const userMarker = new mapboxgl.Marker()
+    .setLngLat(coords)
+    .addTo(map);
 };
 
-const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-};
 
 const initMapbox = () => {
   if (mapElement) {
-    const map = buildMap();
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
+    navigator.geolocation.getCurrentPosition((data) => {
+      const coords = [data.coords.longitude, data.coords.latitude];
+      const map = buildMap(coords);
+      const markers = JSON.parse(mapElement.dataset.markers);
+      addMarkersToMap(map, markers, coords);
+    });
   }
 };
 
