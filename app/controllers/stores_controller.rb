@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: [:show, :edit, :update, :destroy, :scanqr, :checkqr]
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
@@ -35,6 +35,29 @@ class StoresController < ApplicationController
       redirect_to profile_path
     else
       render :update
+    end
+  end
+
+  def scanqr
+  end
+
+  def checkqr
+     # binding.pry
+    decoded = params[:decoded_qr]
+    qr_not_found = true
+
+    @store.vouchers.each do |voucher|
+      if decoded == voucher.key_qrcode
+        voucher.update(status: "Used")
+        qr_not_found = false
+        render js: "window.location = #{store_path(@store).to_json}"
+        flash[:notice] = "Congratulations, the voucher of #{voucher.user.name} is valid 🎉"
+      end
+    end
+    if qr_not_found
+      render js: "window.location = #{store_path(@store).to_json}"
+      # store_path(@store)
+      flash[:alert] = "Unfortunately, this voucher is not valid"
     end
   end
 

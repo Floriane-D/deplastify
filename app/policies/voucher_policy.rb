@@ -10,8 +10,7 @@ class VoucherPolicy < ApplicationPolicy
   end
 
   def edit?
-    # record.benefit.store.user == user
-    return true
+    record.benefit.store.user == user
   end
 
   def show?
@@ -19,13 +18,7 @@ class VoucherPolicy < ApplicationPolicy
   end
 
   def update?
-    # record.benefit.store.user == user
-    return true
-  end
-
-  def destroy?
-    # record.benefit.store.user == user
-    return true
+    record.benefit.store.user == user
   end
 end
 

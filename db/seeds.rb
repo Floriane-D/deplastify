@@ -1,7 +1,4 @@
 require 'faker'
-
-# users :
-
 camille = User.new(
   name:               "Camille Huret",
   phone:              "21-456-654",

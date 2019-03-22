@@ -8,9 +8,7 @@
 
     <div class="description-box">
       <h1 class="text-center"><%= @store.name %></h1>
-
       <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= @store.address %></p>
-
       <p class="text-center" id="phone"><i class="fas fa-phone"></i> <%= @store.phone %></p>
     </div>
 
@@ -22,14 +20,29 @@
 
     <div class="about-box">
       <p class="text-center"><strong>About:</strong></p>
-
       <p class="text-center" id="store-description"><%= @store.description %></p>
     </div>
 
+    <% vouchers_soon = @store.vouchers.select {|voucher| voucher.status == "Not used"} %>
+    <% if policy(@store).edit? && vouchers_soon.empty? == false %>
+      <p>You will soon receive the visit of:</p>
+      <div class="store-vouchers-collection">
+        <% vouchers_soon.each do |voucher| %>
+        <div class="store-voucher">
+          <%= cl_image_tag voucher.user.avatar, :height=>300, :width=>300, :crop=>"fill", :gravity=>"face", class: "avatar-large dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+          <p><%= voucher.user.name %></p>
+        </div>
+        <% end %>
+      </div>
 
-     <div class="button-collection">
+      <%= link_to "Scan a QR code", store_scan_qr_path(@store), method: :get, class: "btn btn-primary" %>
+
+    <% end %>
+
+
+    <div class="button-collection">
       <% if policy(@store).edit? %>
-      <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
+        <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
       <% end %>
 
       <% if policy(@store).edit? %>

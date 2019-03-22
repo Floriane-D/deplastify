@@ -1,19 +1,17 @@
-<h1>Make sure the QR Code is valid</h1>
+<h4>Make sure the QR Code is valid</h4>
 
 <video id="preview"></video>
 
-
 <% content_for :after_js do %>
   <script type="text/javascript">
-    console.log(Rails)
     let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
 
     scanner.addListener('scan', function (content) {
       Rails.ajax({
-          type: 'PATCH',
-          // headers: { 'Content-Type': 'application/json' },
-          url: '<%= voucher_path(@voucher) %>?decoded_qr=' + content,
-          // data: { voucher: { decoded_qr: 'hello' } }
+        type: 'PATCH',
+        // headers: { 'Content-Type': 'application/json' },
+        url: '<%= checkqr_store_path(@store) %>?decoded_qr=' + content,
+        // data: { voucher: { decoded_qr: 'hello' } }
       })
     });
     Instascan.Camera.getCameras().then(function (cameras) {
