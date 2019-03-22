@@ -65,6 +65,7 @@ class PagesController < ApplicationController
         lng: store.longitude,
         infoWindow: render_to_string(partial: "store-card", locals: { store: store })
       }
+
     end
   end
 end
