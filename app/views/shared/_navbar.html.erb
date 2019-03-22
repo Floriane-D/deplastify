@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <li class="dropdown">
 
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <% avatar_url = current_user.facebook_picture_url %>
           <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
           <!-- <%= cl_image_tag current_user.avatar, :height=>300, :width=>300, :crop=>"fill", :gravity=>"face",class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> -->
