@@ -99,7 +99,7 @@ mundoazul.save!
 
 planetaverde = Store.new(
   name:    "Planeta Verde",
-  address: "Rua Dias de Barros 600, Rio de Janeiro, Rio de Janeiro, <Brasil></Brasil>",
+  address: "Rua Dias de Barros 600, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Home appliances",
   phone: "(21) 2227-2930",
   user: User.all.fourth,
@@ -132,7 +132,7 @@ esperanzacafe.save!
 
 benefit_wagon = Benefit.new(
   name:       "Learn coding for free!",
-  description: "Free coding bootcamp and a massgae from Pedro",
+  description: "Free coding bootcamp and a massage from Pedro",
   start_date: "03/15/2019",
   end_date: "09/15/2019",
   store: Store.all.first,
