@@ -42,7 +42,7 @@ camille = User.new(
   lucas.save!
 
   marcus = User.new(
-    name:               "Marcus Maione",
+    name:               "Marcos Maione",
     phone:              "21-456-654",
     avatar:             Rails.root.join("app/assets/images/marcus.jpg").open,
     email:              "marcus@gmail.com",
