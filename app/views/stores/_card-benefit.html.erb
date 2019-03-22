@@ -18,7 +18,9 @@
         <% end %>
       </div>
       <div class="card-benefit-button">
-        <%= link_to "Get the voucher!", store_benefit_vouchers_path(@store, benefit), method: :post, class: "btn btn-primary" %>
+        <% if policy(benefit).edit? == false %>
+          <%= link_to "Get the voucher!", store_benefit_vouchers_path(@store, benefit), method: :post, class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
