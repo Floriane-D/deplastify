@@ -14,7 +14,7 @@ class VouchersController < ApplicationController
     @voucher.user = current_user
     @voucher.status = "Not used"
 
-    @voucher.key_qrcode = SecureRandom.uuid
+    @voucher.key_qrcode = SecureRandom.hex(6).upcase
     authorize @voucher
 
     if @voucher.save
