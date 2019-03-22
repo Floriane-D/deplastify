@@ -3,7 +3,7 @@ camille = User.new(
   name:               "Camille Huret",
   phone:              "21-456-654",
   avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
-  email:              "camillehuret@yahoo.com",
+  email:              "camille@gmail.com",
   password:           "12345678",
 )
 camille.save!
@@ -69,7 +69,7 @@ wagon.save!
 
 osklen = Store.new(
   name:    "Osklen",
-  address: "Rua Prudente de Morais 64, Rio de Janeiro, Rio de Janeiro, Brasil",
+  address: "Rua do Catete 230, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Sustainable Fashion, promotting circular economy and recycling.",
   phone: "(21) 2227-2930",
   user: User.all.third,
@@ -79,7 +79,7 @@ osklen.save!
 
 ecobeach = Store.new(
   name:    "Eco Beach",
-  address: "Rua Bambina 64, Rio de Janeiro, Rio de Janeiro, Brasil",
+  address: "Rua do Passeio 256, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Sustainable Cloth",
   phone: "(21) 2227-2930",
   user: User.all.fourth,
@@ -89,7 +89,7 @@ ecobeach.save!
 
 mundoazul = Store.new(
   name:    "Mundo Azul",
-  address: "Rua Domingos Ferreira 4, Rio de Janeiro, Rio de Janeiro, Brasil",
+  address: "Avenida Rio Branco 456, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Organic food",
   phone: "(21) 2227-2930",
   user: User.all.third,
@@ -99,7 +99,7 @@ mundoazul.save!
 
 planetaverde = Store.new(
   name:    "Planeta Verde",
-  address: "Rua Barata Ribeiro 316, Rio de Janeiro, Rio de Janeiro, Brasil",
+  address: "Rua Dias de Barros 600, Rio de Janeiro, Rio de Janeiro, <Brasil></Brasil>",
   description: "Home appliances",
   phone: "(21) 2227-2930",
   user: User.all.fourth,
@@ -109,7 +109,7 @@ planetaverde.save!
 
 ashtanga = Store.new(
   name:    "Ashtanga",
-  address: "Avenida Vieira Souto 460, Rio de Janeiro, Rio de Janeiro, Brasil",
+  address: "Rua Paissandu 300, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Yoga sudio",
   phone: "(21) 2227-2930",
   user: User.all.fifth,
@@ -119,7 +119,7 @@ ashtanga.save!
 
 esperanzacafe = Store.new(
   name:    "Esperanza Cafe",
-  address: "Avenida Vieira Souto 160, Rio de Janeiro, Rio de Janeiro, Brasil",
+  address: "Rua Pereira da Silva 102, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Sustainably sourced coffee",
   phone: "(21) 2227-2930",
   user: User.all.third,
