@@ -29,20 +29,12 @@ const addMarkersToMap = (map, markers, coords) => {
 };
 
 const addGeolocationControl = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-
-  const fitBounds = (map, bounds, options) => {
-    map.fitBounds(bounds, options)
-  }
-  fitBounds(map, bounds, { padding: 70, maxZoom: 15, duration: 1500  });
-
   const geoControl = new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true
     },
       trackUserLocation: true,
-      fitBoundsOptions: { zoom: 15 }
+      fitBoundsOptions: { zoom: 14, duration: 2000 }
     }
   );
   map.addControl(geoControl)
