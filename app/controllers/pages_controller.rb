@@ -67,8 +67,6 @@ class PagesController < ApplicationController
           infoWindow: render_to_string(partial: "store-card", locals: { store: store })
         }
       end
-    else
-      puts "hello"
     end
   end
 end
