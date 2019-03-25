@@ -141,8 +141,8 @@ benefit_wagon.save!
 
 
 benefit_osklen = Benefit.new(
-    name:       "10% reduction",
-    description: "10% reduction valid on all shoes",
+    name:       "Free T-Shirt",
+    description: "Our star t-shirt ASAP: As Sustainable As Possible",
     start_date: "03/15/2019",
     end_date: "09/15/2019",
     store:Store.all.second,
@@ -150,8 +150,8 @@ benefit_osklen = Benefit.new(
 benefit_osklen.save!
 
 benefit_ecobeach = Benefit.new(
-    name:       "5% reduction",
-    description: "5% reduction on all products",
+    name:       "Discount",
+    description: "10% reduction on all products",
     start_date: "03/15/2019",
     end_date: "09/15/2019",
     store:Store.all.third,
@@ -159,8 +159,8 @@ benefit_ecobeach = Benefit.new(
 benefit_ecobeach.save!
 
 benefit_mundoazul = Benefit.new(
-    name:       "5% reduction",
-    description: "5% reduction on all products",
+    name:       "Discount",
+    description: "15% reduction on all products",
     start_date: "03/15/2019",
     end_date: "09/15/2019",
     store:Store.all.fourth,
@@ -168,8 +168,8 @@ benefit_mundoazul = Benefit.new(
 benefit_mundoazul.save!
 
 benefit_planetaverde = Benefit.new(
-    name:       "5% reduction",
-    description: "5% reduction on all products",
+    name:       "Gift",
+    description: "Free tote bag with our beautiful logo",
     start_date: "03/15/2019",
     end_date: "09/15/2019",
     store:Store.all.fifth,

@@ -1,7 +1,6 @@
 <div class="profile">
   <div class="col-lg-4 col-sm-6 col-xs-12">
 
-    <h2> Welcome <%=@user.name %>!</h2>
     <div>
       <h4>Your available vouchers:</h4>
       <%= render 'vouchers-available', vouchers: @vouchers %>
@@ -14,7 +13,7 @@
     </div>
 
     <div class="text-center">
-      <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
+      <%= link_to "Edit your profile", edit_user_registration_path %>
     </div>
     <br>
     <div class = cancellation>

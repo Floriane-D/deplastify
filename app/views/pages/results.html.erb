@@ -22,14 +22,14 @@
       </div>
       <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form"}) do |f| %>
         <div class="modal-body">
-          <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Find a store near a specific address", html: {class: "search_input"} %>
+          <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Find a store near me", html: {class: "search_input"} %>
         </div>
         <div class="form-actions" style="text-align: center">
           <%= f.submit class: 'btn btn-primary', value: "Search" %>
         </div>
         <br>
         <div class="modal-footer" style="justify-content: center">
-          <a href="#" class="btn btn-primary" id="my-location">Find near me</a>
+        <%= link_to "Find a Store", results_path, class: "btn btn-primary", id:"my-location" %>
         </div>
       <% end %>
     </div>
