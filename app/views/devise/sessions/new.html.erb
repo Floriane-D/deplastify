@@ -1,7 +1,14 @@
 <div class="container-mobile col-lg-4 col-sm-6 col-xs-12">
   <div class="main-content">
+    <br>
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to icon('fab', 'facebook') + " Log in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
 
-    <h4>Log in:</h4>
+
+    <h6>Log in with your e-mail:</h6>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">

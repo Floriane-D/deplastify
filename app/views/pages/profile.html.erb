@@ -1,22 +1,17 @@
-
 <div class="profile">
-
   <div class="col-lg-4 col-sm-6 col-xs-12">
 
     <div>
       <h4>Your available vouchers:</h4>
       <%= render 'vouchers-available', vouchers: @vouchers %>
-      </div>
-      <div>
+    </div>
+    <div>
       <%= render 'vouchers-used', vouchers: @vouchers %>
-      </div>
-      <div>
+    </div>
+    <div>
       <%= render 'user-stores', stores: @stores %>
-      </div>
-  </div>
+    </div>
 
-
-<br>
     <div class="text-center">
       <%= link_to "Edit your profile", edit_user_registration_path %>
     </div>
@@ -26,4 +21,6 @@
         <br>
         <%= link_to "I can cancell my account!", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
     </div>
+
+  </div>
 </div>
