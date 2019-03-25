@@ -3,7 +3,7 @@ camille = User.new(
   name:               "Camille Huret",
   phone:              "21-456-654",
   avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
-  email:              "camillehuret@yahoo.com",
+  email:              "camille@gmail.com",
   password:           "12345678",
 )
 camille.save!
