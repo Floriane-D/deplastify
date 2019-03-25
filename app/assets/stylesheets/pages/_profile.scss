@@ -13,8 +13,62 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  opacity:1
+  opacity:1;
 }
+
+.benefit-card {
+  padding: 10px 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  opacity:1;
+  }
+
+.date{
+  height: 100%;
+  width: 100px;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-top: 10px;
+  align-items: center;
+  padding: 16px;
+  vertical-align: middle;
+  text-align:center
+
+
+}
+
+.benefit-card-info{
+  width: 200px;
+}
+
+.benefit-card-info h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0
+}
+
+.benefit-card-info p {
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px
+}
+
+.benefit-card.benefit-card-info {
+  padding: 16px;
+}
+
 
 .stores-box{
   // padding: 0px 10px 10px 10px;
