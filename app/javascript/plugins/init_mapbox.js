@@ -14,7 +14,7 @@ const addMarkersToMap = (map, markers, coords) => {
   markers.forEach((marker) => {
   const storeElement = document.createElement('div');
   storeElement.className = 'marker';
-  storeElement.style.backgroundImage = `url('https://img.icons8.com/dusk/100/000000/marker.png')`;
+  storeElement.style.backgroundImage = `url('https://img.icons8.com/dusk/100/000000/turtle.png')`;
   storeElement.style.backgroundSize = 'contain';
   storeElement.style.width = '35px';
   storeElement.style.height = '35px';
@@ -26,24 +26,31 @@ const addMarkersToMap = (map, markers, coords) => {
     .setPopup(popup)
     .addTo(map);
   });
-
-  const element = document.createElement('div');
-  element.className = 'marker';
-  element.style.backgroundImage = `url('https://img.icons8.com/dusk/100/000000/turtle.png')`;
-  element.style.backgroundSize = 'contain';
-  element.style.width = '35px';
-  element.style.height = '35px';
-
-  const userMarker = new mapboxgl.Marker(element)
-    .setLngLat(coords)
-    .addTo(map);
 };
 
-const fitMapToMarkers = (map, markers) => {
+const addGeolocationControl = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-};
+
+  const fitBounds = (map, bounds, options) => {
+    map.fitBounds(bounds, options)
+  }
+  fitBounds(map, bounds, { padding: 70, maxZoom: 15, duration: 1500  });
+
+  const geoControl = new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+      trackUserLocation: true,
+      fitBoundsOptions: { zoom: 15 }
+    }
+  );
+  map.addControl(geoControl)
+  setTimeout(function() {
+    $(".mapboxgl-ctrl-geolocate").click();
+  },100);
+}
+
 
 const initMapbox = () => {
   if (mapElement) {
@@ -52,7 +59,7 @@ const initMapbox = () => {
       const map = buildMap(coords);
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(map, markers, coords);
-      fitMapToMarkers(map, markers);
+      addGeolocationControl(map, markers);
     });
   }
 };
