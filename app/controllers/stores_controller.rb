@@ -48,10 +48,18 @@ class StoresController < ApplicationController
 
     @store.vouchers.each do |voucher|
       if decoded == voucher.key_qrcode
+
+        # ActionCable.server.broadcast 'VoucherScanChannel', message: "Your voucher has been validated"
+        VoucherScanChannel.broadcast_to(
+          voucher,
+          message: "You can enjoy #{voucher.benefit.description} at #{voucher.benefit.store.name} now!",
+          status: 'success'
+        )
+
         voucher.update(status: "Used")
         qr_not_found = false
         render js: "window.location = #{store_path(@store).to_json}"
-        flash[:notice] = "Congratulations, the voucher of #{voucher.user.name} is valid 🎉"
+        flash[:notice] = "Congratulations, the voucher of #{voucher.user.first_name} is valid 🎉"
       end
     end
     if qr_not_found

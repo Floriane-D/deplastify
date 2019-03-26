@@ -1,12 +1,14 @@
 <% vouchers_available = @vouchers.select {|voucher| voucher.status == "Not used"} %>
+
 <% if vouchers_available.empty? == false %>
+
   <% vouchers_available.each do |voucher| %>
-     <div class = "voucher-card">
+     <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
       <p>Bring your plastic to <%= link_to voucher.benefit.store.name, store_path(voucher.benefit.store)%> and present this QR Code to the cashier</p>
         <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
         <%= raw qr.as_html %>
         <p><%= voucher.benefit.description %></p>
-    </div>
+    <% end %>
   <% end %>
 
 <% else %>
@@ -15,9 +17,5 @@
     <div class="text-center">
       <%= link_to "Find a store", root_path, class: "btn btn-primary" %>
     </div>
-
+   </div>
 <% end %>
-
-
-
-
