@@ -1,6 +1,19 @@
 require 'faker'
+
+camille = User.new(
+  first_name:         "Camille",
+  last_name:          "Huret",
+  phone:              "21-456-654",
+  avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
+  email:              "camille@gmail.com",
+  password:           "12345678",
+)
+camille.save!
+
+
 floriane = User.new(
-  name:               "Floriane Didier",
+  first_name:         "Floriane",
+  last_name:          "Didier",
   phone:              "21-456-654",
   avatar:             Rails.root.join("app/assets/images/floriane.jpg").open,
   email:              "floriane@gmail.com",
@@ -10,7 +23,8 @@ floriane.save!
 
 
 lucas = User.new(
-  name:               "Lucas Martins",
+  first_name:         "Lucas",
+  last_name:          "Martins",
   phone:              "21-456-654",
   avatar:             Rails.root.join("app/assets/images/lucas.jpg").open,
   email:              "lucas@gmail.com",
@@ -18,17 +32,9 @@ lucas = User.new(
 )
 lucas.save!
 
-camille = User.new(
-  name:               "Camille Huret",
-  phone:              "21-456-654",
-  avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
-  email:              "camille@gmail.com",
-  password:           "12345678",
-)
-camille.save!
-
 marcus = User.new(
-  name:               "Marcus Maione",
+  first_name:         "Marcus",
+  last_name:          "Maione",
   phone:              "21-456-654",
   avatar:             Rails.root.join("app/assets/images/marcus.jpg").open,
   email:              "marcus@gmail.com",
@@ -37,7 +43,8 @@ marcus = User.new(
 marcus.save!
 
 pedro = User.new(
-  name:               "Pedro Meyer",
+  first_name:         "Pedro",
+  last_name:          "Meyer",
   phone:              "21-456-654",
   avatar:             Rails.root.join("app/assets/images/pedro.jpg").open,
   email:              "pedro@gmail.com",
@@ -47,7 +54,8 @@ pedro.save!
 
 10.times do
   user = User.new(
-    name:               Faker::Name.name,
+    first_name:         Faker::Name.first_name,
+    last_name:          Faker::Name.last_name,
     phone:              Faker::PhoneNumber.phone_number,
     avatar:             Faker::Avatar.image,
     email:              Faker::Internet.unique.email,
