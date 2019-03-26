@@ -30,18 +30,18 @@
       <p class="text-center" id="store-description"><%= @store.description %></p>
     </div>
 
-    <% vouchers_soon = @store.vouchers.select {|voucher| voucher.status == "Not used"} %>
-    <% if policy(@store).edit? && vouchers_soon.empty? == false %>
-      <p>You will soon receive the visit of:</p>
-      <div class="store-vouchers-collection">
-        <% vouchers_soon.each do |voucher| %>
-        <div class="store-voucher">
-          <%= cl_image_tag voucher.user.avatar, :height=>300, :width=>300, :crop=>"fill", :gravity=>"face", class: "avatar-large dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
-          <p><%= voucher.user.first_name %></p>
+      <% vouchers_soon = @store.vouchers.select {|voucher| voucher.status == "Not used"} %>
+      <% if policy(@store).edit? && vouchers_soon.empty? == false %>
+        <p>You will soon receive the visit of:</p>
+        <div class="store-vouchers-collection">
+          <% vouchers_soon.each do |voucher| %>
+          <div class="store-voucher voucher-coming">
+            <%= cl_image_tag voucher.user.avatar, :height=>300, :width=>300, :crop=>"fill", :gravity=>"face", class: "avatar-large dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+            <p><%= voucher.user.first_name %></p>
+          </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
-    <% end %>
+      <% end %>
 
      <div class="button-collection">
       <% if policy(@store).edit? %>
