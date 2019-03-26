@@ -1,15 +1,14 @@
 require 'faker'
 
-camille = User.new(
-  first_name:         "Camille",
-  last_name:          "Huret",
+lucas = User.new(
+  first_name:         "Lucas",
+  last_name:          "Martins",
   phone:              "21-456-654",
-  avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
-  email:              "camille@gmail.com",
+  avatar:             Rails.root.join("app/assets/images/lucas.jpg").open,
+  email:              "lucas@gmail.com",
   password:           "12345678",
 )
-camille.save!
-
+lucas.save!
 
 floriane = User.new(
   first_name:         "Floriane",
@@ -21,16 +20,15 @@ floriane = User.new(
 )
 floriane.save!
 
-
-lucas = User.new(
-  first_name:         "Lucas",
-  last_name:          "Martins",
+camille = User.new(
+  first_name:         "Camille",
+  last_name:          "Huret",
   phone:              "21-456-654",
-  avatar:             Rails.root.join("app/assets/images/lucas.jpg").open,
-  email:              "lucas@gmail.com",
+  avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
+  email:              "camille@gmail.com",
   password:           "12345678",
 )
-lucas.save!
+camille.save!
 
 marcus = User.new(
   first_name:         "Marcus",
