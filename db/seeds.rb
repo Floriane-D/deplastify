@@ -1,13 +1,4 @@
 require 'faker'
-camille = User.new(
-  name:               "Camille Huret",
-  phone:              "21-456-654",
-  avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
-  email:              "camille@gmail.com",
-  password:           "12345678",
-)
-camille.save!
-
 floriane = User.new(
   name:               "Floriane Didier",
   phone:              "21-456-654",
@@ -26,6 +17,15 @@ lucas = User.new(
   password:           "12345678",
 )
 lucas.save!
+
+camille = User.new(
+  name:               "Camille Huret",
+  phone:              "21-456-654",
+  avatar:             Rails.root.join("app/assets/images/camille.JPG").open,
+  email:              "camille@gmail.com",
+  password:           "12345678",
+)
+camille.save!
 
 marcus = User.new(
   name:               "Marcus Maione",
@@ -73,7 +73,7 @@ osklen = Store.new(
   description: "Sustainable fashion, promoting circular economy and recycling.",
   phone: "(21) 2227-2930",
   user: User.all.third,
-  picture: Rails.root.join("app/assets/images/osklen.jpeg").open,
+  picture: Rails.root.join("app/assets/images/osklen.jpg").open,
 )
 osklen.save!
 
@@ -83,7 +83,7 @@ ecobeach = Store.new(
   description: "Sustainable clothing.",
   phone: "(21) 2227-2930",
   user: User.all.fourth,
-  picture: Rails.root.join("app/assets/images/ecobeach.jpeg").open,
+  picture: Rails.root.join("app/assets/images/ecobeach.jpg").open,
 )
 ecobeach.save!
 
@@ -93,7 +93,7 @@ mundoazul = Store.new(
   description: "Organic food.",
   phone: "(21) 2227-2930",
   user: User.all.third,
-  picture: Rails.root.join("app/assets/images/mundoazul.jpeg").open,
+  picture: Rails.root.join("app/assets/images/mundoazul.jpg").open,
 )
 mundoazul.save!
 
@@ -103,7 +103,7 @@ planetaverde = Store.new(
   description: "Home appliances.",
   phone: "(21) 2227-2930",
   user: User.all.fourth,
-  picture: Rails.root.join("app/assets/images/planetaverde.jpeg").open,
+  picture: Rails.root.join("app/assets/images/planetaverde.jpg").open,
 )
 planetaverde.save!
 
@@ -113,7 +113,7 @@ ashtanga = Store.new(
   description: "Yoga studio.",
   phone: "(21) 2227-2930",
   user: User.all.fifth,
-  picture: Rails.root.join("app/assets/images/ashtanga.jpeg").open,
+  picture: Rails.root.join("app/assets/images/ashtanga.jpg").open,
 )
 ashtanga.save!
 
@@ -123,7 +123,7 @@ esperanzacafe = Store.new(
   description: "Sustainable coffee.",
   phone: "(21) 2227-2930",
   user: User.all.third,
-  picture: Rails.root.join("app/assets/images/esperanzacafe.jpeg").open,
+  picture: Rails.root.join("app/assets/images/esperanzacafe.jpg").open,
 )
 esperanzacafe.save!
 
