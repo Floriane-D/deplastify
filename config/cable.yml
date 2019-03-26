@@ -5,6 +5,6 @@ redis: &redis
 production:
   <<: *redis
   url: <%= ENV["REDISCLOUD_URL"] %>
-production: *redis
+# production: *redis
 development: *redis
 test: *redis

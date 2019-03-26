@@ -3,7 +3,7 @@
 <% if vouchers_available.empty? == false %>
 
   <% vouchers_available.each do |voucher| %>
-     <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
+     <%= tag.div(class: 'voucher-card voucher-qr', data: { id: voucher.id } ) do %>
       <p>Bring your plastic to <%= link_to voucher.benefit.store.name, store_path(voucher.benefit.store)%> and present this QR Code to the cashier</p>
         <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
         <%= raw qr.as_html %>
