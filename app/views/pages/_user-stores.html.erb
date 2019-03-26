@@ -1,35 +1,37 @@
-
 <% if @stores.empty? == false %>
-  <h4>Your collecting stores:</h4>
+
+  <h4>Your stores:</h4>
+
   <div class="stores-box">
     <p>Thanks for your contribution, you are amazing! <i class="fas fa-heart"></i></p>
+
     <% @stores.each do |store| %>
       <%=render 'store-card', store: store%>
       <br>
     <% end %>
-  <div>
-  <div>
-    <h4>Building an empire?</h4>
-    <div class="text-center">
-      <% if policy(Store).create? %>
-        <%= link_to "Register another store", new_store_path, class: "btn btn-primary" %>
-      <% end %>
-    </div>
+  </div>
+
+
+  <h4>Building an empire?</h4>
+  <div class="text-center">
+    <% if policy(Store).create? %>
+      <%= link_to "Register another store", new_store_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 
 
 <% else %>
-  <div>
-    <h4>Are you a store manager?</h4>
-      <div class="voucher-card">
-        <p>Be part to the adventure and start collecting plastic?</p>
-        <div class="text-center">
-          <% if policy(Store).create? %>
-            <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
+
+  <h4>Are you a store manager?</h4>
+  <div class="voucher-card">
+    <p>Be part to the adventure and start collecting plastic?</p>
+    <div class="text-center">
+      <% if policy(Store).create? %>
+        <%= link_to "Register your store", new_store_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
+
 <% end %>
 
 
