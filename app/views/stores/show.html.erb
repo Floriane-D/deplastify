@@ -1,13 +1,20 @@
 <div class="container">
-
   <div class="info-box">
+
+    <h4 class="text-center"><%= @store.name %></h4>
+
+    <% if policy(@store).edit? %>
+      <div class="text-center">
+        <%= link_to "Scan a QR code", store_scan_qr_path(@store), method: :get, class: "btn btn-primary" %>
+      </div>
+    <% end %>
 
     <div class="picture-box">
       <%= cl_image_tag @store.picture, :height=>700, :width=>700, :crop=>"fill", class: "framed-picture" %>
     </div>
 
     <div class="description-box">
-      <h1 class="text-center"><%= @store.name %></h1>
+
       <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= "#{@store.address.split(", ").first}, #{@store.address.split(", ").second} - #{@store.address.split(", ").fourth}" %></p>
       <p class="text-center" id="phone"><i class="fas fa-phone"></i> <%= @store.phone %></p>
     </div>
@@ -37,16 +44,20 @@
     <% end %>
 
      <div class="button-collection">
-      <%= link_to "Scan a QR code", store_scan_qr_path(@store), method: :get, class: "btn btn-primary" %>
-      <%= link_to "Back to results", results_path, class: "btn btn-primary" %>
       <% if policy(@store).edit? %>
         <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>
       <% end %>
 
+      <br>
       <% if policy(@store).edit? %>
-        <%= link_to "Edit this store", edit_store_path(@store), class: "btn btn-primary" %>
+        <%= link_to "Edit this store", edit_store_path(@store) %>
+      <% end %>
+
+      <% if policy(@store).edit? == false %>
+        <%= link_to "Back to map", results_path, class: "btn btn-primary" %>
       <% end %>
     </div>
+
   </div>
 </div>
 
