@@ -59,13 +59,14 @@ class PagesController < ApplicationController
     end
     @stores = stores_with_location_criteria
 
-    @markers = @stores.map do |store|
-      {
-        lat: store.latitude,
-        lng: store.longitude,
-        infoWindow: render_to_string(partial: "store-card", locals: { store: store })
-      }
-
+    unless @stores.empty?
+      @markers = @stores.map do |store|
+        {
+          lat: store.latitude,
+          lng: store.longitude,
+          infoWindow: render_to_string(partial: "store-card", locals: { store: store })
+        }
+      end
     end
   end
 end

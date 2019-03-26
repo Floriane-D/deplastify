@@ -3,33 +3,29 @@
 <% end %>
 
 <div class="profile">
-
   <div class="col-lg-4 col-sm-6 col-xs-12">
 
-    <h2> Welcome <%=@user.name %>!</h2>
     <div>
-    <h4>Your available vouchers:</h4>
-    <%= render 'vouchers-available', vouchers: @vouchers %>
+      <h4>Your available vouchers:</h4>
+      <%= render 'vouchers-available', vouchers: @vouchers %>
     </div>
     <div>
-    <%= render 'vouchers-used', vouchers: @vouchers %>
+      <%= render 'vouchers-used', vouchers: @vouchers %>
     </div>
     <div>
-    <%= render 'user-stores', stores: @stores %>
+      <%= render 'user-stores', stores: @stores %>
     </div>
-  </div>
-
-
 
     <div class="text-center">
-      <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
+      <%= link_to "Edit your profile", edit_user_registration_path %>
     </div>
     <br>
     <div class = cancellation>
       <p>Plastic pollution has been eradicated from the world surface,
         <br>
-        <%= link_to "I can cancell my account!", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= link_to "I can cancel my account!", user_registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
     </div>
 
+  </div>
 </div>
 

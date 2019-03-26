@@ -1,25 +1,28 @@
+<% vouchers_available = @vouchers.select {|voucher| voucher.status == "Not used"} %>
 
-  <% vouchers_available = @vouchers.select {|voucher| voucher.status == "Not used"} %>
-  <% if vouchers_available.empty? == false %>
+<% if vouchers_available.empty? == false %>
 
-    <% vouchers_available.each do |voucher| %>
-      <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
-        <div class ="qr-container">
-          <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
-          <%= raw qr.as_html %>
-        </div>
-        <p><u><%= voucher.benefit.store.name %></u></p>
-        <p><%= voucher.benefit.store.address %></p>
-        <p><%= voucher.benefit.description %></p>
-      <% end %>
+  <% vouchers_available.each do |voucher| %>
+    <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
+      <p><u><%= voucher.benefit.store.name %></u></p>
+      <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
+      <%= raw qr.as_html %>
+      <p><%= voucher.benefit.store.address %></p>
+      <p><%= voucher.benefit.description %></p>
     <% end %>
-
-  <% else %>
-    <div class = "voucher-card">
-      <p>You have no vouchers available at the moment.</p>
-      <div class="text-center">
-        <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
-      </div>
-    </div>
   <% end %>
 
+<% else %>
+  <div class = "voucher-card">
+    <p>You have no vouchers available at the moment.</p>
+    <div class="text-center">
+     <a href="#" class="btn btn-primary" id="my-location">Find a store</a>
+    </div>
+    <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form", class: "search-box"}) do |f| %>
+      <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Search an address", html: {class: "search_input"} %>
+    <div>
+        <%= f.submit class: 'btn btn-primary search-button', value: "Search" %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
