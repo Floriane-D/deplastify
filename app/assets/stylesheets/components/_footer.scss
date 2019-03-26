@@ -5,13 +5,13 @@
   position: static;
   bottom: 0;
   z-index: 1;
-  background-color: rgb(220,220,220);
+  background-color: #113F67;
   height: 40px;
   padding: 0px 5px;
   align-items: center;
   width: 100%;
   margin-top: 16px;
-  color: #212529;
+  color: white;
  }
 
 @media (min-width: 576px) {
@@ -34,7 +34,7 @@
 .footer-links a {
   text-decoration: none;
   padding: 0px 5px;
-  color: #212529;
+  color: white;
 }
 
 .footer-links a:hover {

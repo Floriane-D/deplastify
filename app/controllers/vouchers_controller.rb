@@ -19,7 +19,7 @@ class VouchersController < ApplicationController
 
     if @voucher.save
       redirect_to profile_path
-      flash[:notice] = "Congratulations #{@voucher.user.name} 🎉, your voucher with #{@voucher.benefit.store.name} has been prepared"
+      flash[:notice] = "Congratulations 🎉! Please, present this voucher at the store to get your benefit!"
     else
       flash[:alert] = "Something went wrong"
       redirect_to store_path(@benefit.store)
