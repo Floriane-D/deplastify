@@ -4,16 +4,14 @@
   "short_name": "Deplastify",
   "start_url": "/",
   "icons": [
-  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
-      "sizes": "<%= dim %>",
+      "src": "<%= image_path "turtle-logo.png" %>",
+      "sizes": "640x640",
       "type": "image/png"
-    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
-  <% end %>
+    }
   ],
-  "theme_color": "#000000",
-  "background_color": "#FFFFFF",
+  "theme_color": "#113F67",
+  "background_color": "#113F67",
   "display": "fullscreen",
   "orientation": "portrait"
 }
