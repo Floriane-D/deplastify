@@ -37,7 +37,7 @@
         <% vouchers_soon.each do |voucher| %>
         <div class="store-voucher">
           <%= cl_image_tag voucher.user.avatar, :height=>300, :width=>300, :crop=>"fill", :gravity=>"face", class: "avatar-large dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
-          <p><%= voucher.user.name %></p>
+          <p><%= voucher.user.first_name %></p>
         </div>
         <% end %>
       </div>
