@@ -1,5 +1,5 @@
-<div class="banner" style="background-image: url('<%= image_path "temp-background.jpg" %>');">
-  <div class="banner-main-content col-lg-4 col-sm-6 col-xs-12">
+<div class="container-mobile col-lg-4 col-sm-6 col-xs-12">
+  <div class="main-content">
 
 
     <h4>Edit your profile:</h4>
@@ -14,7 +14,10 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :name %>
+        <%= f.input :first_name,
+                    :label => "First Name:" %>
+        <%= f.input :last_name,
+                    :label => "Last Name:" %>
         <%= f.input :phone %>
         <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",

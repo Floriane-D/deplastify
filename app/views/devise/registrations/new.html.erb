@@ -23,8 +23,10 @@
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" },
                     :label => "Password:" %>
-        <%= f.input :name,
-                    :label => "Name:" %>
+        <%= f.input :first_name,
+                    :label => "First Name:" %>
+        <%= f.input :last_name,
+                    :label => "Last Name:" %>
         <%= f.input :phone,
                     :label => "Phone number:" %>
         <%= f.input :avatar, :label => "Add a profile picture:" %>
