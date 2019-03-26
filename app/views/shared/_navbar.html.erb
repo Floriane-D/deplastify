@@ -2,7 +2,7 @@
 
   <div class="nav-left">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "turtle-logo-4.png" %>
+      <%= image_tag "turtle-logo.png" %>
     <% end %>
     <%= link_to root_path, class: "navbar-brand" do %>
       <h5>Deplastify!</h5>
@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto nav-right">
       <% if user_signed_in? %>
         <li class="dropdown">
 
