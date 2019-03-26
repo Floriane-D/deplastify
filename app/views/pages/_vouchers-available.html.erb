@@ -3,23 +3,23 @@
   <% if vouchers_available.empty? == false %>
 
     <% vouchers_available.each do |voucher| %>
-    <div class = "voucher-card">
-      <div class ="qr-container">
+      <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
+        <div class ="qr-container">
           <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
           <%= raw qr.as_html %>
-      </div>
+        </div>
         <p><u><%= voucher.benefit.store.name %></u></p>
         <p><%= voucher.benefit.store.address %></p>
         <p><%= voucher.benefit.description %></p>
+      <% end %>
     <% end %>
 
-    <% else %>
-      <div class = "voucher-card">
-        <p>You have no vouchers available at the moment.</p>
-        <div class="text-center">
-          <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
-        </div>
-
-
+  <% else %>
+    <div class = "voucher-card">
+      <p>You have no vouchers available at the moment.</p>
+      <div class="text-center">
+        <a href="#" class="btn btn-primary" id="my-location">Find a participant store near me</a>
+      </div>
+    </div>
   <% end %>
 
