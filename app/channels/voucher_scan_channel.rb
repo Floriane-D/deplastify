@@ -3,7 +3,9 @@ class VoucherScanChannel < ApplicationCable::Channel
   # become a subscriber to this channel.
   def subscribed
     # raise
-    voucher = Voucher.find(params[:id])
-    stream_for voucher
+    if Voucher.find(params[:id])
+      voucher = Voucher.find(params[:id])
+      stream_for voucher
+    end
   end
 end
