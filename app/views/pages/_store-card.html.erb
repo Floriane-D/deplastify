@@ -1,4 +1,4 @@
-<div class="store-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path store.picture, height: 300, width: 400, crop: :fill, gravity: :auto %>');">
+<div class="store-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path store.picture, height: 600, width: 800, crop: :fill, gravity: :auto %>');">
   <div class="store-card-description">
     <h2><%= store.name %></h2>
     <p><%= "#{store.address.split(",").first}, #{store.address.split(",").second}" %></p>
