@@ -3,12 +3,11 @@
 <% if vouchers_available.empty? == false %>
 
   <% vouchers_available.each do |voucher| %>
-    <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
-      <p><u><%= voucher.benefit.store.name %></u></p>
-      <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
-      <%= raw qr.as_html %>
-      <p><%= voucher.benefit.store.address %></p>
-      <p><%= voucher.benefit.description %></p>
+     <%= tag.div(class: 'voucher-card', data: { id: voucher.id } ) do %>
+      <p>Bring your plastic to <%= link_to voucher.benefit.store.name, store_path(voucher.benefit.store)%> and present this QR Code to the cashier</p>
+        <% qr = RQRCode::QRCode.new(voucher.key_qrcode, :size => 4, :level => :h, :mode => :alphanumeric ) %>
+        <%= raw qr.as_html %>
+        <p><%= voucher.benefit.description %></p>
     <% end %>
   <% end %>
 
@@ -16,13 +15,7 @@
   <div class = "voucher-card">
     <p>You have no vouchers available at the moment.</p>
     <div class="text-center">
-     <a href="#" class="btn btn-primary" id="my-location">Find a store</a>
+      <%= link_to "Find a store", root_path, class: "btn btn-primary" %>
     </div>
-    <%= simple_form_for(:search, url: results_path, method: :get, html: {id: "search_form", class: "search-box"}) do |f| %>
-      <%= f.input :address, input_html: { class: 'address-auto' }, :label => "Search an address", html: {class: "search_input"} %>
-    <div>
-        <%= f.submit class: 'btn btn-primary search-button', value: "Search" %>
-    </div>
-    <% end %>
-  </div>
+   </div>
 <% end %>
