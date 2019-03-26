@@ -8,7 +8,7 @@
 
     <div class="description-box">
       <h1 class="text-center"><%= @store.name %></h1>
-      <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= @store.address %></p>
+      <p class="text-center"><i class="fas fa-map-marker-alt"></i> <%= "#{@store.address.split(", ").first}, #{@store.address.split(", ").second} - #{@store.address.split(", ").fourth}" %></p>
       <p class="text-center" id="phone"><i class="fas fa-phone"></i> <%= @store.phone %></p>
     </div>
 
@@ -34,12 +34,10 @@
         </div>
         <% end %>
       </div>
-
-      <%= link_to "Scan a QR code", store_scan_qr_path(@store), method: :get, class: "btn btn-primary" %>
-
     <% end %>
 
      <div class="button-collection">
+      <%= link_to "Scan a QR code", store_scan_qr_path(@store), method: :get, class: "btn btn-primary" %>
       <%= link_to "Back to results", results_path, class: "btn btn-primary" %>
       <% if policy(@store).edit? %>
         <%= link_to "Add a benefit", new_store_benefit_path(@store), class: "btn btn-primary" %>

@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  background-color: rgb(220,220,220);
+  background-color: #113F67;
   height: 50px;
   padding: 0px 10px;
   display: flex;
@@ -20,9 +20,11 @@
   align-items: center;
 }
 
-.navbar-lewagon h5 {
-  margin-bottom: 0px;
-  margin-left: 10px;
+.nav-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 32px;
 }
 
 .navbar-brand {
@@ -32,6 +34,13 @@
   vertical-align: center;
   display: flex;
   align-items: center;
+  color: white !important;
+
+  h5 {
+    font-family: $logo-font;
+    margin-bottom: 0px;
+    margin-left: 5px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -57,11 +66,11 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #212529;
+  color: white !important;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #212529;
+  color: white !important;
   opacity: 0.6;
 }
 

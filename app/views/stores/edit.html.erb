@@ -1,29 +1,34 @@
-<h3>Edit <%= @store.name %>:</h3>
+<div class="container-mobile col-lg-4 col-sm-6 col-xs-12">
+  <div class="main-content">
+    <br>
 
-<%= simple_form_for(@store) do |f| %>
-  <%= f.error_notification %>
+    <h3>Edit <%= @store.name %>:</h3>
 
-  <div class="form-inputs">
+    <%= simple_form_for(@store) do |f| %>
+      <%= f.error_notification %>
 
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :phone %>
-    <%= f.input :description %>
+      <div class="form-inputs">
+
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :phone %>
+        <%= f.input :description %>
+      </div>
+
+      <div class="form-actions" style="text-align: center">
+        <%= f.submit class: 'btn btn-primary', value: "Update" %>
+      </div>
+    <% end %>
+    <br>
+
+    <div style="text-align: center">
+        <%= link_to "Back", :back, class: 'btn btn-primary' %>
+    </div>
+
+    <% if policy(@store).destroy? %>
+      <p style="text-align: center">Unhappy?
+      <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
+      </p>
+    <% end %>
   </div>
-
-  <div class="form-actions" style="text-align: center">
-    <%= f.submit class: 'btn btn-primary', value: "Update" %>
-  </div>
-<% end %>
-<br>
-
-<div style="text-align: center">
-    <%= link_to "Back", :back, class: 'btn btn-primary' %>
 </div>
-
-<% if policy(@store).destroy? %>
-  <p style="text-align: center">Unhappy?
-  <%= link_to "Remove this store", store_path(@store), data: { confirm: "Are you sure?" }, method: :delete %>
-  </p>
-<% end %>
-
