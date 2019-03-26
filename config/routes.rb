@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   get '/stores/:id/scanqr', to: 'stores#scanqr', :as => :store_scan_qr
   # patch '/stores/:id/checkqr', to: 'stores#checkqr', :as => :store_check_qr
 
+  # Sidekiq
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

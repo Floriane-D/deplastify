@@ -2,7 +2,7 @@ import swal from 'sweetalert';
 import consumer from "../channels/consumer";
 console.log('Voucher Pack')
 
-const vouchers = document.querySelectorAll('.voucher-card');
+const vouchers = document.querySelectorAll('.voucher-qr');
 window.swal = swal;
 
 const subcribeToVoucherScan = (voucher) => {
