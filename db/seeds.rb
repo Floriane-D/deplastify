@@ -73,15 +73,15 @@ wagon = Store.new(
 )
 wagon.save!
 
-osklen = Store.new(
-  name:    "Osklen",
+cotton = Store.new(
+  name:    "Cotton",
   address: "Rua do Catete 230, Rio de Janeiro, Rio de Janeiro, Brasil",
   description: "Sustainable fashion, promoting circular economy and recycling.",
   phone: "(21) 2227-2930",
   user: User.all.third,
-  picture: Rails.root.join("app/assets/images/osklen.jpg").open,
+  picture: Rails.root.join("app/assets/images/clothing-store.jpg").open,
 )
-osklen.save!
+cotton.save!
 
 ecobeach = Store.new(
   name:    "Eco Beach",
